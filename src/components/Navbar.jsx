@@ -15,6 +15,10 @@ import OurPartners from './Partners/OurPartners';
 import WestBurr from './Partners/WestBurr';
 import Garcia from './Partners/Garcia';
 import Morner from './Partners/Morner';
+import Message from './Contact/Message';
+import Contact from './Contact/Contact';
+import SignIn from './Sign-in-up/SignIn';
+
 
 const Navbar = () => {
     const [dropDown, setDropDown] = useState(false);
@@ -94,8 +98,10 @@ const Navbar = () => {
                 <Route path='/about-us' element={<div><AboutUs/><Mission/><TeamInfo/><ContactUs/><Footer /></div>} />
                 <Route path='/why-us' element={<div><InPress/><ContactUs/><Footer /></div>} />
                 <Route path='/partners' element={<div><OurPartners/><WestBurr/><Garcia/><Morner/><Footer /></div>} />
+                <Route path='/contact' element={<div><Contact/><Message/><Footer /></div>} />
+
                 <Route path='/know-more' element={<div><Blogs/><Footer /></div>} />
-                <Route path='/signup' element={<div><Footer /></div>} />
+                <Route path='/signup' element={<div><SignIn/><Footer /></div>} />
 
                 {/* Add more routes here */}
             </Routes>
