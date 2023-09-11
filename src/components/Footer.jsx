@@ -10,14 +10,14 @@ const Footer = () => {
             </div>
             <div>
                 <h3>CONTACTS</h3>
-                <p>123-456-7890</p>
-                <p>info@presson.com</p>
+                <p className='font-jost'>123-456-7890</p>
+                <p className='font-jost'>info@presson.com</p>
 
             </div>
             <div>
                 <h3>ADDRESS</h3>
-                <p>123 your street name,</p>
-                <p>City name, Country, post code</p>
+                <p className='font-jost'>123 your street name,</p>
+                <p className='font-jost'>City name, Country, post code</p>
             </div>
         </div>
 

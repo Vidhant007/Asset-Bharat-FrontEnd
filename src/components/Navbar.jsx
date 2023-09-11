@@ -3,6 +3,18 @@ import { Link, Route, Routes } from 'react-router-dom';
 import Footer from './Footer';
 import ContactUs from './ContactUs';
 import assetLogo from '../assets/logo.png';
+import Blogs from './Blogs';
+import Partners from './Partners';
+import ClientFeedback from './ClientFeedback';
+import TeamInfo from './TeamInfo';
+import ProcessOfInvesting from './ProcessOfInvesting';
+import AboutUs from './AboutUs';
+import Mission from './Mission';
+import InPress from './InPress';
+import OurPartners from './Partners/OurPartners';
+import WestBurr from './Partners/WestBurr';
+import Garcia from './Partners/Garcia';
+import Morner from './Partners/Morner';
 
 const Navbar = () => {
     const [dropDown, setDropDown] = useState(false);
@@ -57,7 +69,7 @@ const Navbar = () => {
                             dropDown ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                         } transition-all duration-300 transform origin-top md:hidden`}
                     >
-                        <Link to="/footer" className='block p-4 transition duration-300 hover:bg-gray-800'>About us</Link>
+                        <Link to="/about-us" className='block p-4 transition duration-300 hover:bg-gray-800'>About us</Link>
                         <Link to="/projects" className='block p-4 transition duration-300 hover:bg-gray-800'>Projects</Link>
                         <Link to="/why-us" className='block p-4 transition duration-300 hover:bg-gray-800'>Why Us?</Link>
                         <Link to="/partners" className='block p-4 transition duration-300 hover:bg-gray-800'>Partners</Link>
@@ -67,7 +79,7 @@ const Navbar = () => {
                     </nav>
                     {/** Navigation links for larger displays */}
                     <nav className={`hidden md:flex space-x-4 pt-5 gap-10`}>
-                        <Link to="/footer" className='transition duration-300 hover:text-yellow-500'>About us</Link>
+                        <Link to="/about-us" className='transition duration-300 hover:text-yellow-500'>About us</Link>
                         <Link to="/projects" className='transition duration-300 hover:text-yellow-500'>Projects</Link>
                         <Link to="/why-us" className='transition duration-300 hover:text-yellow-500'>Why Us?</Link>
                         <Link to="/partners" className='transition duration-300 hover:text-yellow-500'>Partners</Link>
@@ -78,8 +90,13 @@ const Navbar = () => {
                 </div>
             </div>
             <Routes>
-                <Route path='/' element={<div><ContactUs /><Footer /></div>} />
-                <Route path='/footer' element={<div><Footer /><ContactUs /></div>} />
+                <Route path='/' element={<div><ProcessOfInvesting/><ClientFeedback/><TeamInfo/><Partners/><ContactUs /><Footer /></div>} />
+                <Route path='/about-us' element={<div><AboutUs/><Mission/><TeamInfo/><ContactUs/><Footer /></div>} />
+                <Route path='/why-us' element={<div><InPress/><ContactUs/><Footer /></div>} />
+                <Route path='/partners' element={<div><OurPartners/><WestBurr/><Garcia/><Morner/><Footer /></div>} />
+                <Route path='/know-more' element={<div><Blogs/><Footer /></div>} />
+                <Route path='/signup' element={<div><Footer /></div>} />
+
                 {/* Add more routes here */}
             </Routes>
         </div>
