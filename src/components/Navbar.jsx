@@ -18,6 +18,7 @@ import Morner from './Partners/Morner';
 import Message from './Contact/Message';
 import Contact from './Contact/Contact';
 import SignIn from './Sign-in-up/SignIn';
+import Home from './Home';
 
 
 const Navbar = () => {
@@ -94,7 +95,7 @@ const Navbar = () => {
                 </div>
             </div>
             <Routes>
-                <Route path='/' element={<div><ProcessOfInvesting/><ClientFeedback/><TeamInfo/><Partners/><ContactUs /><Footer /></div>} />
+                <Route path='/' element={<div><Home/><ProcessOfInvesting/><ClientFeedback/><TeamInfo/><Partners/><ContactUs /><Footer /></div>} />
                 <Route path='/about-us' element={<div><AboutUs/><Mission/><TeamInfo/><ContactUs/><Footer /></div>} />
                 <Route path='/why-us' element={<div><InPress/><ContactUs/><Footer /></div>} />
                 <Route path='/partners' element={<div><OurPartners/><WestBurr/><Garcia/><Morner/><Footer /></div>} />
