@@ -7,8 +7,8 @@ const Home = () => {
     <div className='bg-cream-bg text-partner flex justify-evenly pt-20 pb-20'>
       <div>
         <div className='absolute'>
-            <h3 className='text-5xl pl-2'>INVEST</h3>
-            <h2 className='text-3xl pl-3 pt-5'>IN COMMERCIAL & RESIDENTIAL</h2>
+            <h3 className='text-5xl pl-2 text-custom-blue'>INVEST</h3>
+            <h2 className='text-3xl pl-3 pt-5 text-custom-blue'>IN COMMERCIAL & RESIDENTIAL</h2>
             <h1 className='text-9xl pt-8'>REAL ESTATE</h1>
         </div>
         

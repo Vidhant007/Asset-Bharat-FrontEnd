@@ -19,6 +19,9 @@ import Message from './Contact/Message';
 import Contact from './Contact/Contact';
 import SignIn from './Sign-in-up/SignIn';
 import Home from './Home';
+import WhyInvest from './WhyInvest';
+import ProcessOfBuying from './ProjectsHome/ProcessOfBuying';
+import ProjectsHome from './ProjectsHome/ProjectsHome';
 
 
 const Navbar = () => {
@@ -95,16 +98,15 @@ const Navbar = () => {
                 </div>
             </div>
             <Routes>
-                <Route path='/' element={<div><Home/><ProcessOfInvesting/><ClientFeedback/><TeamInfo/><Partners/><ContactUs /><Footer /></div>} />
+                <Route path='/' element={<div><Home/><WhyInvest/><ProcessOfInvesting/><ClientFeedback/><TeamInfo/><Partners/><ContactUs /><Footer /></div>} />
                 <Route path='/about-us' element={<div><AboutUs/><Mission/><TeamInfo/><ContactUs/><Footer /></div>} />
+                <Route path='/projects' element={<div><ProjectsHome/><ProcessOfBuying/><ContactUs/><Footer /></div>} />
                 <Route path='/why-us' element={<div><InPress/><ContactUs/><Footer /></div>} />
                 <Route path='/partners' element={<div><OurPartners/><WestBurr/><Garcia/><Morner/><Footer /></div>} />
-                <Route path='/contact' element={<div><Contact/><Message/><Footer /></div>} />
-
+                <Route path='/contact' element={<div><Contact/><Message/><Footer /></div>} />    
                 <Route path='/know-more' element={<div><Blogs/><Footer /></div>} />
                 <Route path='/signup' element={<div><SignIn/><Footer /></div>} />
 
-                {/* Add more routes here */}
             </Routes>
         </div>
     );
