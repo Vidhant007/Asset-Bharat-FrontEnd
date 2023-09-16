@@ -9,7 +9,7 @@ const ProcessOfBuying = () => {
         PROCESS <br/> OF BUYING
       </h1>            
     
-      <div class="h-4 w-1/4 bg-white"></div>
+      <div className="h-4 w-1/4 bg-white"></div>
 
         </section>    
     </div>

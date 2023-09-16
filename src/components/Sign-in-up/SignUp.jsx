@@ -14,10 +14,10 @@ const SignUp = () => {
           <div className="w-full xl:w-3/4 lg:w-11/12 flex">
             {/* Col */}
             <img
-              className="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
+              className="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover "
             src={pic}/>
             {/* Col */}
-            <div className="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+            <div className="w-full lg:w-7/12 bg-white p-5 ">
               <h3 className="pt-4 text-2xl text-center">Create an Account!</h3>
               <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
                 <div className="mb-4 md:flex md:justify-between">
@@ -96,7 +96,7 @@ const SignUp = () => {
                 </div>
                 <div className="mb-6 text-center">
                   <button
-                    className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                    className="w-full px-4 py-2 font-bold text-white bg-blue-500  hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                     type="button"
                   >
                     Register Account

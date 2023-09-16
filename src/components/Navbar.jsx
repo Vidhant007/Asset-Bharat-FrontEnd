@@ -22,6 +22,7 @@ import Home from './Home';
 import WhyInvest from './WhyInvest';
 import ProcessOfBuying from './ProjectsHome/ProcessOfBuying';
 import ProjectsHome from './ProjectsHome/ProjectsHome';
+import ListedProperties from './ProjectsHome/ListedProperties';
 
 
 const Navbar = () => {
@@ -100,7 +101,7 @@ const Navbar = () => {
             <Routes>
                 <Route path='/' element={<div><Home/><WhyInvest/><ProcessOfInvesting/><ClientFeedback/><TeamInfo/><Partners/><ContactUs /><Footer /></div>} />
                 <Route path='/about-us' element={<div><AboutUs/><Mission/><TeamInfo/><ContactUs/><Footer /></div>} />
-                <Route path='/projects' element={<div><ProjectsHome/><ProcessOfBuying/><ContactUs/><Footer /></div>} />
+                <Route path='/projects' element={<div><ProjectsHome/><ProcessOfBuying/><ListedProperties/><ContactUs/><Footer /></div>} />
                 <Route path='/why-us' element={<div><InPress/><ContactUs/><Footer /></div>} />
                 <Route path='/partners' element={<div><OurPartners/><WestBurr/><Garcia/><Morner/><Footer /></div>} />
                 <Route path='/contact' element={<div><Contact/><Message/><Footer /></div>} />    
