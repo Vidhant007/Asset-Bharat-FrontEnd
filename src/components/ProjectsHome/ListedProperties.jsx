@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import garcia from '../../assets/garcia_dark.svg';
 import axios from 'axios';
+import Property from './Property';
+import { Link, Routes,Route } from 'react-router-dom';
+import Footer from '../Footer';
 
 const ListedProperties = () => {
   const [properties, setProperties] = useState([]);
+ 
 
   useEffect(() => {
     const fetchProperties = async () => {
@@ -18,11 +22,14 @@ const ListedProperties = () => {
     fetchProperties();
   }, []);
 
+
+  
+
   return (
     <div>
       {properties.map((property, index) => (
         <div
-          key={property.id}
+          key={property._id}
           className={`${
             index === 1 ? 'bg-blue-xlight' : 'bg-cream-bg'
           } text-custom-blue md:flex items-center justify-evenly p-12`}
@@ -59,13 +66,22 @@ const ListedProperties = () => {
                 <h3>RENTAL YIELD - 7%</h3>
               </div>
 
-              <button className="bg-custom-blue text-sm text-white w-1/2 h-10">
-                INVEST
-              </button>
+              <Link
+                    to={`/property/${property._id}`}
+                    className="bg-custom-blue text-sm text-white w-1/2 h-10 flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-blue-500 active:bg-blue-700"
+                    >
+                    INVEST
+                </Link>
+
             </section>
           </div>
+         
+
+        
         </div>
       ))}
+
+      
     </div>
   );
 };

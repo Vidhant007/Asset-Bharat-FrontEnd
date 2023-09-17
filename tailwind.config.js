@@ -22,6 +22,7 @@ export default {
       },
       spacing: {
         '150':'40rem',
+        '105':'27rem',
         '100': '25rem', 
         '90':'23rem',
         '85':'20rem',
@@ -29,6 +30,7 @@ export default {
         '30':'15rem',
         '25':'12rem',
         '22':'9rem',
+        '21':'7rem',
       },
     },
   },
