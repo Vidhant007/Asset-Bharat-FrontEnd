@@ -13,7 +13,6 @@ const Profile = () => {
 
     return (
         <div className="font-jost bg-white h-screen pt-21">
-            {/* Top bar */}
             <TopBar />
 
             <div className="flex h-full bg-white">

@@ -7,7 +7,7 @@ import LinkedAccounts from './LinkedAccounts';
 
 const ProfileContent = ({ selectedContent }) => {
     return (
-        <div className="container mx-auto my-auto">
+        <div className="container mx-auto">
             {selectedContent === 'overview' && <Overview />}
             {selectedContent === 'transactions' && <Transactions />}
             {selectedContent === 'reports' && <Reports />}
