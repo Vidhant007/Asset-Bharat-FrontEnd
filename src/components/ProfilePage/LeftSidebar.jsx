@@ -1,0 +1,66 @@
+import React from 'react';
+import { FaUser, FaExchangeAlt, FaChartBar, FaFileAlt, FaLink } from 'react-icons/fa';
+
+const LeftSidebar = ({ selectedContent, handleContentChange }) => {
+  return (
+    <div className="left-sidebar bg-white p-3 border shadow" style={{ width: '13%' }}>
+      <button
+        onClick={() => handleContentChange('overview')}
+        className={`${selectedContent === 'overview'
+          ? 'bg-custom-blue text-white font-bold'
+          : 'text-blue-900'
+          } py-4 px-4 rounded-lg mb-2 w-full text-left hover:bg-blue-800 hover:text-white hover:font-bold transition duration-300 flex justify-between items-center`}
+      >
+        <span className="flex items-center">
+          <FaUser className="mr-2" /> Overview
+        </span>
+      </button>
+      <button
+        onClick={() => handleContentChange('transactions')}
+        className={`${selectedContent === 'transactions'
+          ? 'bg-custom-blue text-white font-bold'
+          : 'text-blue-900'
+          } py-4 px-4 rounded-lg mb-2 w-full text-left hover:bg-blue-800 hover:text-white hover:font-bold transition duration-300 flex justify-between items-center`}
+      >
+        <span className="flex items-center">
+          <FaExchangeAlt className="mr-2" /> Transactions
+        </span>
+      </button>
+      <button
+        onClick={() => handleContentChange('reports')}
+        className={`${selectedContent === 'reports'
+          ? 'bg-custom-blue text-white font-bold'
+          : 'text-blue-900'
+          } py-4 px-4 rounded-lg mb-2 w-full text-left hover:bg-blue-800 hover:text-white hover:font-bold transition duration-300 flex justify-between items-center`}
+      >
+        <span className="flex items-center">
+          <FaChartBar className="mr-2" /> Reports
+        </span>
+      </button>
+      <button
+        onClick={() => handleContentChange('documents')}
+        className={`${selectedContent === 'documents'
+          ? 'bg-custom-blue text-white font-bold'
+          : 'text-blue-900'
+          } py-4 px-4 rounded-lg mb-2 w-full text-left hover:bg-blue-800 hover:text-white hover:font-bold transition duration-300 flex justify-between items-center`}
+      >
+        <span className="flex items-center">
+          <FaFileAlt className="mr-2" /> Documents
+        </span>
+      </button>
+      <button
+        onClick={() => handleContentChange('linked-accounts')}
+        className={`${selectedContent === 'linked-accounts'
+          ? 'bg-custom-blue text-white font-bold'
+          : 'text-blue-900'
+          } py-4 px-4 rounded-lg w-full text-left hover:bg-blue-800 hover:text-white hover:font-bold transition duration-300 flex justify-between items-center`}
+      >
+        <span className="flex items-center">
+          <FaLink className="mr-2" /> Linked Accounts
+        </span>
+      </button>
+    </div>
+  );
+};
+
+export default LeftSidebar;
