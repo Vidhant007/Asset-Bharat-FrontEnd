@@ -10,14 +10,12 @@ const Profile = () => {
         setSelectedContent(content);
     };
 
-
     return (
-        <div className="font-jost bg-white h-screen pt-21">
-            <TopBar />
+        <div className="font-jost bg-blue-xlight pt-21">
+        <TopBar />
 
-            <div className="flex h-full bg-white">
+            <div className="flex bg-white flex-1 border"> 
                 <LeftSidebar selectedContent={selectedContent} handleContentChange={handleContentChange} />
-
                 <ProfileContent selectedContent={selectedContent} />
             </div>
         </div>

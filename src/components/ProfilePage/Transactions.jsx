@@ -7,6 +7,7 @@ const Transactions = () => {
         { id: 2, type: 'Interest Transactions', description: 'Transaction 2', transactionId: 'T2', date: '2023-09-06', amount: '$50', fromAccount: 'Account B' },
         { id: 3, type: 'Sales Transactions', description: 'Transaction 3', transactionId: 'T3', date: '2023-09-07', amount: '$10', fromAccount: 'Account C' },
         { id: 4, type: 'Rewards', description: 'Transaction 4', transactionId: 'T4', date: '2023-09-08', amount: '$75', fromAccount: 'Account D' },
+        { id: 5, type: 'Rewards', description: 'Transaction 5', transactionId: 'T5', date: '2023-09-08', amount: '$75', fromAccount: 'Account D' },
         // Add more transactions for different types
     ];
 
@@ -106,7 +107,7 @@ const Transactions = () => {
                                 <td className=" py-2 px-4 text-black">{transaction.fromAccount}</td>
                                 <td className=" py-2 px-4 text-black">{transaction.description}</td>
                                 {selectedTransactionType === 'All Transactions' && (
-                                    <td className="border py-2 px-4 text-black">{transaction.type}</td>
+                                    <td className="py-2 px-4 text-black">{transaction.type}</td>
                                 )}
                             </tr>
                         ))}
