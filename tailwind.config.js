@@ -28,11 +28,12 @@ export default {
         '85':'20rem',
         '40':'17rem',
         '30':'15rem',
+        '28':'13rem',
         '25':'12rem',
         '22':'9rem',
         '21':'7rem',
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }

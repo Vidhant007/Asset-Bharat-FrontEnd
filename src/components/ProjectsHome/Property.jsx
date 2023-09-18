@@ -45,7 +45,7 @@ const Property = () => {
   };
 
   return (
-    <div className="flex bg-cream-bg text-custom-blue p-20  flex-col items-center">
+    <div className="flex bg-cream-bg text-custom-blue p-20 pt-28 flex-col items-center">
       {data ? (
         <div className='flex justify-start items-center gap-12'>
           <h1 className="text-4xl pb-10 pr-30">{data.name}</h1>

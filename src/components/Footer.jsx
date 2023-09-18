@@ -3,7 +3,7 @@ import assetLogo from '../assets/logo.png';
 
 const Footer = () => {
   return (
-    <div className='bg-custom-blue-800 p-8'>
+    <div className='bg-custom-blue p-8'>
         <div className='flex justify-evenly text-center md:flex-row flex-col gap-10 justify-center md:pl-6'>
             <div>
                 <img src={assetLogo} className='h-24' alt="Logo" />

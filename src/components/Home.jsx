@@ -4,7 +4,7 @@ import star from '../assets/star-dark.svg';
 
 const Home = () => {
   return (
-    <div className='bg-cream-bg text-partner flex justify-evenly pt-20 pb-20'>
+    <div className='bg-cream-bg text-partner flex justify-evenly pt-25 pb-20'>
       <div>
         <div className='absolute'>
             <h3 className='text-5xl pl-2 text-custom-blue'>INVEST</h3>

@@ -6,7 +6,7 @@ import star from '../../assets/star-dark.svg';
 
 const ProjectsHome = () => {
   return (
-    <div className='bg-blue-xlight text-partner flex justify-evenly pt-20 pb-20'>
+    <div className='bg-blue-xlight text-partner flex justify-evenly pt-25 pb-20'>
       <div>
         <div className='absolute'>
     

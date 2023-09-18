@@ -4,11 +4,11 @@ import star_dark from '../assets/star-dark.svg';
 
 const InPress = () => {
   return (
-    <div className="bg-white text-partner flex relative justify-center gap-20 pb-30 pt-20">
+    <div className="bg-white text-partner flex relative justify-center gap-20 pb-30 pt-25">
       <div className="w-1/4">
         <img src={inPress}  alt="About Us" />
-        <img src={star_dark} alt="star" style={{ position: 'absolute', top: '1%', right: '20%', fontSize: '6rem' }} className='hidden md:flex '/>
-        <h2 style={{ position: 'absolute', top: '10%', right: '28%', fontSize: '6rem' }} className='hidden md:flex'>
+        <img src={star_dark} alt="star" style={{ position: 'absolute', top: '13%', right: '20%', fontSize: '6rem' }} className='hidden md:flex '/>
+        <h2 style={{ position: 'absolute', top: '20%', right: '28%', fontSize: '6rem' }} className='hidden md:flex'>
   <span className="text-partner">IN PRESS</span>
 </h2>
 

@@ -6,7 +6,7 @@ const SignUp = () => {
 
 
   return (
-    <div className="font-jost bg-blue-xlight p-10 ">
+    <div className="font-jost bg-blue-xlight p-10 pt-22 ">
       {/* Container */}
       <div className="container mx-auto">
         <div className="flex justify-center px-6 my-12">
@@ -26,7 +26,7 @@ const SignUp = () => {
                       First Name
                     </label>
                     <input
-                      className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                      className="w-full px-3 bg-white py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="firstName"
                       type="text"
                       placeholder="First Name"
@@ -37,7 +37,7 @@ const SignUp = () => {
                       Last Name
                     </label>
                     <input
-                      className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                      className="w-full bg-white  px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="lastName"
                       type="text"
                       placeholder="Last Name"
@@ -49,7 +49,7 @@ const SignUp = () => {
                     Email
                   </label>
                   <input
-                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                    className="w-full px-3 bg-white  py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="email"
                     type="email"
                     placeholder="Email"
@@ -61,7 +61,7 @@ const SignUp = () => {
                     Mobile No.
                   </label>
                   <input
-                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                    className="w-full bg-white px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="mobile"
                     type="number"
                     placeholder="9813913185"
@@ -75,7 +75,7 @@ const SignUp = () => {
                       Password
                     </label>
                     <input
-                      className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                      className="w-full bg-white px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="password"
                       type="password"
                       placeholder="******************"
@@ -87,7 +87,7 @@ const SignUp = () => {
                       Confirm Password
                     </label>
                     <input
-                      className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                      className="w-full bg-white px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="c_password"
                       type="password"
                       placeholder="******************"

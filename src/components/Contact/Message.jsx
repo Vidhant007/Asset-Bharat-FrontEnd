@@ -20,22 +20,22 @@ const Message = () => {
         <form className='flex flex-col gap-5 font-jost'>
           <div className="mb-3">
             <label htmlFor='name' className="block text-black">Name*</label>
-            <input type="text" placeholder='Your name' className="block w-96  p-2 " />
+            <input type="text" placeholder='Your name' className="bg-white block w-96  p-2 " />
           </div>
 
           <div className="mb-3">
             <label htmlFor='name' className="block text-black">Last name</label>
-            <input type="text" placeholder='Your last name' className="block w-96 p-2 " />
+            <input type="text" placeholder='Your last name' className=" bg-white block w-96 p-2 " />
           </div>
 
           <div className="mb-3">
             <label htmlFor='name' className="block text-black">Your email*</label>
-            <input type="text" placeholder='Your email address' className="block w-96  p-2 " />
+            <input type="text" placeholder='Your email address' className=" bg-white block w-96  p-2 " />
           </div>
 
           <div className="mb-3">
             <label htmlFor='name' className="block text-black">Message*</label>
-            <textarea type="text" placeholder='Enter your message' className="block w-96  p-2 " />
+            <textarea type="text" placeholder='Enter your message' className="bg-white block w-96  p-2 " />
           </div>
           
           <div className='flex justify-end font-krona'>

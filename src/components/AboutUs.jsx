@@ -4,11 +4,11 @@ import star_dark from '../assets/star-dark.svg';
 
 const AboutUs = () => {
   return (
-    <div className="flex relative justify-center gap-20 pb-30 pt-20">
+    <div className="flex relative bg-custom-blue justify-center gap-20 pb-30 pt-25">
       <div className="w-1/4">
         <img src={aboutus_img}  alt="About Us" />
-        <img src={star_dark} alt="star" style={{ position: 'absolute', top: '10%', right: '71.75%', fontSize: '6rem' }} className='hidden md:flex '/>
-        <h2 style={{ position: 'absolute', top: '10%', right: '26%', fontSize: '6rem' }} className='hidden md:flex'>
+        <img src={star_dark} alt="star" style={{ position: 'absolute', top: '14%', right: '71.75%', fontSize: '6rem' }} className='hidden md:flex '/>
+        <h2 style={{ position: 'absolute', top: '25%', right: '26%', fontSize: '6rem' }} className='hidden md:flex'>
   <span className="text-partner">AB</span>OUT US
 </h2>
 

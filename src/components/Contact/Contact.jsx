@@ -4,7 +4,7 @@ import star_dark from '../../assets/star-dark.svg';
 
 const Contact = () => {
   return (
-    <div className="bg-white text-partner flex relative justify-center gap-20 pb-25 pt-20">
+    <div className="bg-white text-partner flex relative justify-center gap-20 pb-25 pt-25">
      
       <div className="flex flex-col justify-center pt-30 space-y-10">
 
@@ -30,7 +30,7 @@ const Contact = () => {
       <div >
         <img src={placeholder}  alt="About Us" />
         <img src={star_dark} alt="star" style={{ position: 'absolute', top: '17%', right: '17%', fontSize: '6rem' }} className='hidden md:flex '/>
-        <h2 style={{ position: 'absolute', top: '15%', right: '28%', fontSize: '6.8rem' }} className='hidden md:flex'>
+        <h2 style={{ position: 'absolute', top: '25%', right: '28%', fontSize: '6.8rem' }} className='hidden md:flex'>
   <span className="text-partner">CONTACT US</span>
 </h2>
 

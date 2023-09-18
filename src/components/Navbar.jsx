@@ -28,6 +28,7 @@ import Tenancy from './ProjectsHome/Tenancy';
 import Location from './ProjectsHome/Location';
 import FloorPlan from './ProjectsHome/FloorPlan';
 import Faq from './ProjectsHome/Faq';
+import BlogContent from './BlogContent';
 
 
 const Navbar = () => {
@@ -54,8 +55,9 @@ const Navbar = () => {
 
 
     return (
-        <div className='bg-custom-blue text-white font-krona'>
-            <div className='flex justify-between pt-6 pb-6  pr-12 md:justify-center'>
+        <div className='font-krona'>
+        <div className='w-full fixed top-0 bg-custom-blue text-white font-krona z-50'>
+        <div className='flex  justify-between pt-6 pb-6 pr-12 md:justify-center'>
                 <div className='pr-12'>
                     <Link to="/">
                         <img src={assetLogo} className='h-16' alt="Logo" />
@@ -103,12 +105,17 @@ const Navbar = () => {
                     </nav>
                 </div>
             </div>
-            <Routes>
+        </div>
+
+
+        <Routes>
                 <Route path='/' element={<div><Home/><WhyInvest/><ProcessOfInvesting/><ClientFeedback/><TeamInfo/><Partners/><ContactUs /><Footer /></div>} />
                 <Route path='/about-us' element={<div><AboutUs/><Mission/><TeamInfo/><ContactUs/><Footer /></div>} />
                 <Route path='/projects' element={<div><ProjectsHome/><ProcessOfBuying/><ListedProperties/><ContactUs/><Footer /></div>} />
 
                 <Route path="/property/:id" element={<div><Property /><Tenancy/><Location/><FloorPlan/><Faq/><Footer/></div>} />  
+
+                <Route path='/blog' element={<div><BlogContent/><Footer/></div>}/>
 
                 <Route path='/why-us' element={<div><InPress/><ContactUs/><Footer /></div>} />
                 <Route path='/partners' element={<div><OurPartners/><WestBurr/><Garcia/><Morner/><Footer /></div>} />
@@ -117,6 +124,7 @@ const Navbar = () => {
                 <Route path='/signup' element={<div><SignIn/><Footer /></div>} />
 
             </Routes>
+
         </div>
     );
 }

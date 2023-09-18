@@ -15,7 +15,7 @@ const SignIn = () => {
     }
 
   return (
-    <div className="font-jost bg-blue-xlight p-10">
+    <div className="font-jost bg-blue-xlight p-10 pt-22">
       <div className="container mx-auto">
         <div className="flex justify-center px-6 my-12">
           <div className="w-full xl:w-3/4 lg:w-11/12 flex">
@@ -30,7 +30,7 @@ const SignIn = () => {
                     Username
                   </label>
                   <input
-                    className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                    className="w-full bg-white px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="username"
                     type="text"
                     placeholder="Username"
@@ -41,7 +41,7 @@ const SignIn = () => {
                     Password
                   </label>
                   <input
-                    className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                    className="w-full bg-white px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="password"
                     type="password"
                     placeholder="******************"
@@ -49,8 +49,8 @@ const SignIn = () => {
                   <p className="text-xs italic text-red-500">Please choose a password.</p>
                 </div>
                 <div className="mb-4">
-                  <input className="mr-2 leading-tight" type="checkbox" id="checkbox_id" />
-                  <label className="text-sm text-black" htmlFor="checkbox_id">
+                  <input className="mr-2 bg-white leading-tight" type="checkbox" id="checkbox_id" />
+                  <label className="text-sm  text-black" htmlFor="checkbox_id">
                     Remember Me
                   </label>
                 </div>
