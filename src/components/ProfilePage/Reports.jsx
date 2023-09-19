@@ -1,42 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from 'react';
 
 const Reports = () => {
-    const [investorInterestReports, setInvestorInterestReports] = useState([]);
+    // Sample data for investor interest reports (you can replace this with your actual data)
+    const investorInterestReports = [
+        { date: '2022-01-15', link: '/reports/2022' },
+        { date: '2022-03-20', link: '/reports/2022-2' },
+        { date: '2021-12-10', link: '/reports/2021' },
+        { date: '2020-11-05', link: '/reports/2020' },
+        // Add more reports for different dates
+    ];
+
+    // State for selected year filter
     const [selectedYear, setSelectedYear] = useState('All');
-    const [loading, setLoading] = useState(true);
-    const { id } = useParams();
-
-    useEffect(() => {
-        const fetchInvestorInterestReports = async () => {
-            try {
-                const response = await axios.get('/api/v1/profile/reports/?id=${id}');
-                setInvestorInterestReports(response.data.reports); // Assuming the response contains report data
-                setLoading(false);
-                // The response.data object will have the following structure:
-                // {
-                //   data: {
-                //     reports: [
-                //       {
-                //         date: '2022-01-15',
-                //         link: '/reports/2022',
-                //       },
-                //       {
-                //         date: '2022-03-20',
-                //         link: '/reports/2022-2',
-                //       },
-                //     ];
-                //   },
-                // }
-            } catch (error) {
-                console.error('Error fetching reports:', error);
-                setLoading(true);
-            }
-        };
-
-        fetchInvestorInterestReports();
-    }, [id]);
 
     // Function to handle year filter change
     const handleYearChange = (year) => {
@@ -54,7 +29,7 @@ const Reports = () => {
     return (
         <div>
             <h1 className="text-2xl font-semibold py-3">Reports</h1>
-            <p>Check out your investor interest reports here.</p>
+            <p> Check out your investor interest reports here. </p>
 
             {/* Year Filter Dropdown */}
             <div className="mt-4">
@@ -83,30 +58,23 @@ const Reports = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {loading ? (
+                    {filteredReports.length === 0 && (
                         <tr>
-                            <td className="py-2 px-4 text-blue-900" colSpan={2}>
-                                Loading...
-                            </td>
-                        </tr>
-                    ) : filteredReports.length === 0 ? (
-                        <tr>
-                            <td className="py-2 px-4 text-blue-900" colSpan={2}>
+                            <td className="border py-2 px-4" colSpan={2}>
                                 No reports to display.
                             </td>
                         </tr>
-                    ) : (
-                        filteredReports.map((report, index) => (
-                            <tr key={report.date}>
-                                <td className="py-2 px-4 text-black text-center">{report.date}</td>
-                                <td className="py-2 px-4 text-center">
-                                    <a href={report.link} className="text-custom-blue underline">
-                                        Investor Interest Report dt. {report.date}
-                                    </a>
-                                </td>
-                            </tr>
-                        ))
                     )}
+                    {filteredReports.map((report, index) => (
+                        <tr key={report.date}>
+                            <td className=" py-2 px-4 text-black text-center">{report.date}</td>
+                            <td className=" py-2 px-4 text-center">
+                                <a href={report.link} className="text-custom-blue underline">
+                                    Investor Interest Report dt. {report.date}
+                                </a>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
