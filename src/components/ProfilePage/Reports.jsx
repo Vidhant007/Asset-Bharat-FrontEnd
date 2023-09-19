@@ -27,8 +27,8 @@ const Reports = () => {
     });
 
     return (
-        <div>
-            <h1 className="text-2xl font-semibold py-3">Reports</h1>
+        <div className='pb-22'>
+            <h1 className="text-2xl font-semibold py-3 ">Reports</h1>
             <p> Check out your investor interest reports here. </p>
 
             {/* Year Filter Dropdown */}

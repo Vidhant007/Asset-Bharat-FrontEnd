@@ -1,8 +1,51 @@
 import React, { useState } from 'react';
 import pic from '../../assets/about-us-placeholder.avif';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
+
+
 
 
 const SignUp = () => {
+
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    mobile: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:3000/api/v1/authorization/register', {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+        confirmPassword: formData.confirmPassword,
+        mobileNumber: formData.mobile
+      });
+
+      console.log('Server response:', response.data);
+      toast.success('Registration Sucess')
+
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('An error occurred. Please try again later.');
+    }
+  };
 
 
   return (
@@ -19,7 +62,7 @@ const SignUp = () => {
             {/* Col */}
             <div className="w-full lg:w-7/12 bg-white p-5 ">
               <h3 className="pt-4 text-2xl text-center">Create an Account!</h3>
-              <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+              <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={handleSubmit}>
                 <div className="mb-4 md:flex md:justify-between">
                   <div className="mb-4 md:mr-2 md:mb-0">
                     <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="firstName">
@@ -30,6 +73,7 @@ const SignUp = () => {
                       id="firstName"
                       type="text"
                       placeholder="First Name"
+                      onChange={handleChange}
                     />
                   </div>
                   <div className="md:ml-2">
@@ -41,6 +85,7 @@ const SignUp = () => {
                       id="lastName"
                       type="text"
                       placeholder="Last Name"
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -53,6 +98,7 @@ const SignUp = () => {
                     id="email"
                     type="email"
                     placeholder="Email"
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -65,6 +111,7 @@ const SignUp = () => {
                     id="mobile"
                     type="number"
                     placeholder="9813913185"
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -75,12 +122,12 @@ const SignUp = () => {
                       Password
                     </label>
                     <input
-                      className="w-full bg-white px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                      className="w-full bg-white px-3 py-2 mb-3 text-sm leading-tight text-gray-700  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                       id="password"
                       type="password"
                       placeholder="******************"
+                      onChange={handleChange}
                     />
-                    <p className="text-xs italic text-red-500">Please choose a password.</p>
                   </div>
                   <div className="md:ml-2">
                     <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="c_password">
@@ -88,16 +135,17 @@ const SignUp = () => {
                     </label>
                     <input
                       className="w-full bg-white px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                      id="c_password"
+                      id="confirmPassword"
                       type="password"
                       placeholder="******************"
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
                 <div className="mb-6 text-center">
                   <button
                     className="w-full px-4 py-2 font-bold text-white bg-blue-500  hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                    type="button"
+                    type="submit"
                   >
                     Register Account
                   </button>
@@ -124,6 +172,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

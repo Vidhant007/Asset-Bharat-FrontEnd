@@ -1,10 +1,48 @@
 import React, { useState } from 'react';
 import pic from '../../assets/garcia_img.avif';
 import SignUp from './SignUp';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 
-const SignIn = () => {
+
+const SignIn = ({setSignedIn}) => {
+
+
+ 
 
     const [signUpState,setSignUpState] = useState(false);
+
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
+
+    try{
+      const response = await axios.post('http://localhost:3000/api/v1/authorization/login',{
+        email: formData.email,
+        password: formData.password,
+      });
+
+      console.log('Server Response : ', response.data);
+      toast.success('Login SucessFul');
+
+      setSignedIn(true);
+
+    }catch(error){
+      console.error('Error:', error);
+      toast.error('InCorrect Password or Email.');
+    }
+  }
 
     const toggleSignUp = ()=>{
         setSignUpState(true);
@@ -24,16 +62,17 @@ const SignIn = () => {
             {/* Col */}
             <div className="w-full lg:w-1/2 bg-white p-5 ">
               <h3 className="pt-4 text-2xl text-center">Welcome Back!</h3>
-              <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+              <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={handleSubmit}>
                 <div className="mb-4">
                   <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="username">
-                    Username
+                    User-Email
                   </label>
                   <input
                     className="w-full bg-white px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                    id="username"
+                    id="email"
                     type="text"
-                    placeholder="Username"
+                    placeholder="xyz@gmail.com"
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="mb-4">
@@ -45,6 +84,7 @@ const SignIn = () => {
                     id="password"
                     type="password"
                     placeholder="******************"
+                    onChange={handleChange}
                   />
                   <p className="text-xs italic text-red-500">Please choose a password.</p>
                 </div>
@@ -57,7 +97,7 @@ const SignIn = () => {
                 <div className="mb-6 text-center">
                   <button
                     className="w-full px-4 py-2 font-bold text-white bg-blue-500  hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                    type="button"
+                    type="submit"
                   >
                     Sign In
                   </button>
@@ -84,6 +124,7 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

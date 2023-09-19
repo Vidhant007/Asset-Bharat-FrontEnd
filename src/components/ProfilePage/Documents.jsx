@@ -67,7 +67,7 @@ const Documents = () => {
     });
 
     return (
-        <div>
+        <div className='pb-30'>
             <h1 className="text-2xl font-semibold py-3">Documents</h1>
             <p> View and download documents related to your investments</p>
 

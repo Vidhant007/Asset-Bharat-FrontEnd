@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes  } from 'react-router-dom';
 import Footer from './Footer';
 import ContactUs from './ContactUs';
 import assetLogo from '../assets/logo.png';
@@ -36,6 +36,8 @@ const Navbar = () => {
     const [dropDown, setDropDown] = useState(false);
     const dropdownRef = useRef(null);
 
+    const [signedIn,setSignedIn] = useState(false);
+
 
     const toggleDropDown = () => {
         setDropDown(!dropDown);
@@ -46,6 +48,7 @@ const Navbar = () => {
             setDropDown(false);
         }
     };
+
 
     useEffect(() => {
         window.addEventListener('click', handleOutsideClick);
@@ -90,8 +93,17 @@ const Navbar = () => {
                             <Link to="/partners" className='block p-4 transition duration-300 hover:bg-gray-800'>Partners</Link>
                             <Link to="/contact" className='block p-4 transition duration-300 hover:bg-gray-800'>Contact</Link>
                             <Link to="/know-more" className='block p-4 transition duration-300 hover:bg-gray-800'>Know More</Link>
-                            <Link to="/signup" className='block p-4 transition duration-300 hover:bg-gray-800'>Sign up</Link>
-                        </nav>
+                            {signedIn ? (
+                            <Link to="/profile" className='block p-4 transition duration-300 hover:bg-gray-800'>
+                                Profile
+                            </Link>
+                            ) : (
+                            <Link to="/signup" className='block p-4 transition duration-300 hover:bg-gray-800'>
+                                Sign up
+                            </Link>
+                            )}     
+                           </nav>
+
                         {/** Navigation links for larger displays */}
                         <nav className={`hidden md:flex space-x-4 pt-5 gap-10`}>
                             <Link to="/about-us" className='transition duration-300 hover:text-yellow-500'>About us</Link>
@@ -100,7 +112,16 @@ const Navbar = () => {
                             <Link to="/partners" className='transition duration-300 hover:text-yellow-500'>Partners</Link>
                             <Link to="/contact" className='transition duration-300 hover:text-yellow-500'>Contact</Link>
                             <Link to="/know-more" className='transition duration-300 hover:text-yellow-500'>Know More</Link>
-                            <Link to="/signup" className='transition duration-300 hover:text-yellow-500'>Sign up</Link>
+
+                            {signedIn ? (
+                            <Link to="/profile" className="transition duration-300 hover:text-yellow-500">
+                                Profile
+                            </Link>
+                            ) : (
+                            <Link to="/signup" className="transition duration-300 hover:text-yellow-500">
+                                Sign up
+                            </Link>
+                            )}
                         </nav>
                     </div>
                 </div>
@@ -120,9 +141,9 @@ const Navbar = () => {
                 <Route path='/partners' element={<div><OurPartners /><WestBurr /><Garcia /><Morner /><Footer /></div>} />
                 <Route path='/contact' element={<div><Contact /><Message /><Footer /></div>} />
                 <Route path='/know-more' element={<div><Blogs /><Footer /></div>} />
-                <Route path='/signup' element={<div><SignIn /><Footer /></div>} />
+                <Route path='/signup' element={<div><SignIn setSignedIn={setSignedIn} /><Footer /></div>} />
 
-                <Route path='/profile/:id' element={<div><Profile /></div>} />
+                <Route path='/profile' element={<div><Profile /><Footer/></div>} />
 
             </Routes>
 

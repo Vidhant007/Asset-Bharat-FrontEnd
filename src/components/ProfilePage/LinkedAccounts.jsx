@@ -21,7 +21,7 @@ const LinkedAccounts = () => {
     ];
 
     return (
-        <div>
+        <div className='pb-30'>
             <h1 className="text-2xl font-semibold py-3">Linked Accounts</h1>
             <p>Manage the accounts linked to your profile. Keep track of your connections and settings.</p>
 
