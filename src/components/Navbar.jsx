@@ -122,7 +122,7 @@ const Navbar = () => {
                 <Route path='/know-more' element={<div><Blogs /><Footer /></div>} />
                 <Route path='/signup' element={<div><SignIn /><Footer /></div>} />
 
-                <Route path='/profile' element={<div><Profile /></div>} />
+                <Route path='/profile/:id' element={<div><Profile /></div>} />
 
             </Routes>
 

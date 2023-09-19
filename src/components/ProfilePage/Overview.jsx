@@ -1,27 +1,90 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const Overview = () => {
-    // Sample data for recent investments
-    const recentInvestments = [
-        // { id: 1, type: 'Property', amountInvested: '$1000', date: '2023-09-10' },
-        // { id: 2, type: 'Factory', amountInvested: '$2000', date: '2023-09-11' },
-        // { id: 3, type: 'Real Estate', amountInvested: '$5000', date: '2023-09-12' },
-    ];
+    const [recentInvestments, setRecentInvestments] = useState([]);
+    const [investmentsByLocation, setInvestmentsByLocation] = useState([]);
+    const [investmentsByAssetType, setInvestmentsByAssetType] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    // Sample data for investments by location
-    const investmentsByLocation = [
-        { id: 1, propertyName: 'Property A', location: 'Location X' },
-        { id: 2, propertyName: 'Property B', location: 'Location Y' },
-        { id: 3, propertyName: 'Property C', location: 'Location Z' },
-    ];
+    const { id } = useParams();
 
-    // Sample data for investments by asset type
-    const investmentsByAssetType = [];
+    useEffect(() => {
+        const fetchInvestments = async () => {
+            try {
+                const response = await axios.get('/api/v1/profile/investments/?id=${id}');
+                setRecentInvestments(response.data.recentInvestments);
+                setInvestmentsByLocation(response.data.investmentsByLocation);
+                setInvestmentsByAssetType(response.data.investmentsByAssetType);
+                setLoading(false);
 
-    // Function to check if there are no investments
-    const hasNoInvestments = recentInvestments.length === 0;
+                // The response.data object will have the following structure:
+                // {
+                //   data: {
+                //     recentInvestments: [
+                //       {
+                //         id: 1,
+                //         type: 'Property',
+                //         amountInvested: '$1000',
+                //         date: '2023-09-10',
+                //       },
+                //       {
+                //         id: 2,
+                //         type: 'Factory',
+                //         amountInvested: '$2000',
+                //         date: '2023-09-11',
+                //       },
+                //    ],
+                //     investmentsByLocation: [
+                //       {
+                //         id: 1,
+                //         propertyName: 'Property A',
+                //         location: 'Location X',
+                //       },
+                //       {
+                //         id: 2,
+                //         propertyName: 'Property B',
+                //         location: 'Location Y',
+                //       },
+                //     ],
+                //     investmentsByAssetType: [
+                //       {
+                //         id: 1,
+                //         assetType: 'Property',
+                //         amountInvested: '$1000',
+                //       },
+                //       {
+                //         id: 2,
+                //         assetType: 'Factory',
+                //         amountInvested: '$2000',
+                //       },
+                //     ],
+                //   },
+                // }
+
+            } catch (error) {
+                console.error('Error fetching investments:', error);
+                setLoading(true);
+            }
+        };
+
+        fetchInvestments();
+    }, [id]);
+
+    // Function to check if there are no recent investments
+    const hasNoRecentInvestments = recentInvestments.length === 0;
     const hasNoLocationInvestments = investmentsByLocation.length === 0;
     const hasNoAssetTypeInvestments = investmentsByAssetType.length === 0;
+
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center flex-col">
+                <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-blue-900"></div>
+                <p className="mt-4 text-blue-900 text-lg font-semibold">Loading...</p>
+            </div>
+        );
+    }
 
     return (
         <div className="container mx-auto px-20">
@@ -52,11 +115,12 @@ const Overview = () => {
                 </div>
             </div>
 
+
             <div className='h-96 mt-4 bg-white rounded shadow' style={{ height: '400px' }}>
                 <div className="mt-4">
-                    {hasNoInvestments ? (
+                    {hasNoRecentInvestments ? (
                         <div className="mt-4 p-4 bg-white border rounded shadow h-full text-center">
-                            <p>You have not made any investments yet.</p>
+                            <p>You have not made any recent investments yet.</p>
                             <a href="/property" className="block bg-custom-blue text-white py-2 px-4 rounded-lg text-center mt-4">
                                 View Properties
                             </a>
@@ -89,6 +153,7 @@ const Overview = () => {
                 </div>
             </div>
 
+            {/* Investments by Location */}
             <div className="flex justify-between mt-4 gap-3">
                 <div className="w-1/2 p-4 bg-white border rounded shadow" style={{ height: '300px', overflowY: 'auto' }}>
                     <h2 className="text-lg font-semibold mb-2">Investments by Location</h2>
@@ -113,6 +178,8 @@ const Overview = () => {
                         </table>
                     )}
                 </div>
+
+                {/* Investments by Asset Type */}
                 <div className="w-1/2 p-4 bg-white border rounded shadow" style={{ height: '300px', overflowY: 'auto' }}>
                     <h2 className="text-lg font-semibold mb-2">Investments by Asset Type</h2>
                     {hasNoAssetTypeInvestments ? (

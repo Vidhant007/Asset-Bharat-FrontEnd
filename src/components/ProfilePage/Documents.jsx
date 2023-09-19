@@ -1,47 +1,52 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const Documents = () => {
-    // State for toggling between document types (Investment, Property, SPV, Property Related)
     const [selectedDocumentType, setSelectedDocumentType] = useState('Investment');
-
-    // State for filtering properties (All, Profitable)
     const [propertyFilter, setPropertyFilter] = useState('All');
+    const [documentData, setDocumentData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const { id } = useParams();
 
-    // Sample document data (you can replace this with your actual data)
-    const documentData = [
-        {
-            id: 1,
-            documentTitle: 'Document 1',
-            propertyName: 'Property A',
-            ownership: 'Owner 1',
-            date: '2023-09-01',
-            type: 'Investment',
-        },
-        {
-            id: 2,
-            documentTitle: 'Document 2',
-            propertyName: 'Property B',
-            ownership: 'Owner 2',
-            date: '2023-09-02',
-            type: 'Property',
-        },
-        {
-            id: 3,
-            documentTitle: 'Document 3',
-            propertyName: 'Property C',
-            ownership: 'Owner 3',
-            date: '2023-09-03',
-            type: 'SPV',
-        },
-        {
-            id: 4,
-            documentTitle: 'Document 4',
-            propertyName: 'Property A',
-            ownership: 'Owner 1',
-            date: '2023-09-04',
-            type: 'Property',
-        },
-    ];
+    useEffect(() => {
+        // Fetch user document data from the API endpoint
+        const fetchUserDocuments = async () => {
+            try {
+                const response = await axios.get('/api/v1/profile/documents/?id=${id}');
+                setDocumentData(response.data.documents);
+                setLoading(false);
+                // The response.data object will have the following structure:
+                // {
+                //   data: {
+                //     documents: [
+                //       {
+                //         id: 1,
+                //         documentTitle: 'Document 1',
+                //         propertyName: 'Property A',
+                //         ownership: 'Owner 1',
+                //         date: '2023-09-01',
+                //         type: 'Investment',
+                //       },
+                //       {
+                //         id: 2,
+                //         documentTitle: 'Document 2',
+                //         propertyName: 'Property B',
+                //         ownership: 'Owner 2',
+                //         date: '2023-09-02',
+                //         type: 'Property',
+                //       },
+                //     ],
+                //   },
+                // }
+            } catch (error) {
+                console.error('Error fetching user documents:', error);
+                setLoading(true);
+            }
+        };
+
+        fetchUserDocuments();
+    }, [id]);
 
     // Function to handle document type selection
     const handleDocumentTypeChange = (type) => {
@@ -69,9 +74,9 @@ const Documents = () => {
     return (
         <div>
             <h1 className="text-2xl font-semibold py-3">Documents</h1>
-            <p> View and download documents related to your investments</p>
+            <p>View and download documents related to your investments</p>
 
-            <div className="flex justify-between items-center py-">
+            <div className="flex justify-between items-center py-4">
                 {/* Document Type Toggle */}
                 <div className="flex mt-4">
                     <button
@@ -131,11 +136,13 @@ const Documents = () => {
                         <th className="py-2 px-4 text-left" style={{ width: '35%' }}>Property Name</th>
                         <th className="py-2 px-4 text-left" style={{ width: '15%' }}>Ownership</th>
                         <th className="py-2 px-4 text-left" style={{ width: '15%' }}>Date</th>
-                    </tr>
-
-                </thead>
+                    </tr>                </thead>
                 <tbody>
-                    {filteredDocuments.length === 0 ? (
+                    {loading ? (
+                        <tr>
+                            <td className="py-2 px-4 text-blue-900">Loading...</td>
+                        </tr>
+                    ) : filteredDocuments.length === 0 ? (
                         <tr>
                             <td className="py-2 px-4 text-blue-900">No documents to display.</td>
                         </tr>
