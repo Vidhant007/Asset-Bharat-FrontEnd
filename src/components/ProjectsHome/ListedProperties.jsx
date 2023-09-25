@@ -27,7 +27,7 @@ const ListedProperties = () => {
 
   return (
     <div>
-      {properties.map((property, index) => (
+      {properties.slice(0, 3).map((property, index) => (
         <div
           key={property._id}
           className={`${

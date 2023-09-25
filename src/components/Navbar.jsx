@@ -30,6 +30,7 @@ import FloorPlan from './ProjectsHome/FloorPlan';
 import Faq from './ProjectsHome/Faq';
 import BlogContent from './BlogContent';
 import Profile from './ProfilePage/Profile';
+import FundedProperties from './FundedProperties';
 
 
 const Navbar = () => {
