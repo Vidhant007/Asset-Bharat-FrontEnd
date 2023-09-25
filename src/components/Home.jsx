@@ -1,6 +1,7 @@
 import React from 'react';
 import img from '../assets/home_pic.avif';
 import star from '../assets/star-dark.svg';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
         
         <div className='mt-40'>
           <div className='w-20 h-4 bg-partner-bg mb-20'></div>
-            <button className='bg-custom-blue text-white w-full h-12'>View Opportunities</button>
+          <Link to='/projects' className="bg-custom-blue text-sm text-white w-3/4 h-10 flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-blue-500 active:bg-blue-700">VIEW OPPORTUNITIES</Link>
             <div className='pt-5'>
                 <p className='font-jost text-sm'>*Minimum Investment size starting at just Rs 7000 <br/>*Choose from several commercial and residential portfolios <br/>*Get monthly rents and profits on your investment</p>
             </div>

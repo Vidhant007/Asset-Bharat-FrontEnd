@@ -31,6 +31,8 @@ import Faq from './ProjectsHome/Faq';
 import BlogContent from './BlogContent';
 import Profile from './ProfilePage/Profile';
 import FundedProperties from './FundedProperties';
+import ExitedProperties from './ExitedProperties';
+import ResaleProperties from './ResaleProperties';
 
 
 const Navbar = () => {
@@ -145,6 +147,8 @@ const Navbar = () => {
                 <Route path='/signup' element={<div><SignIn setSignedIn={setSignedIn} /><Footer /></div>} />
 
                 <Route path='/profile' element={<div><Profile /><Footer/></div>} />
+
+                <Route path='/allproperties' element={<div><FundedProperties/><ExitedProperties/><ResaleProperties/><Footer/></div>}/>
 
             </Routes>
 

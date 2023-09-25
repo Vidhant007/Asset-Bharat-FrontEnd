@@ -1,6 +1,7 @@
 import React from 'react';
 import img2 from '../../assets/projects_placeholder2.avif';
 import img from '../../assets/projects_placeholder.avif';
+import { Link } from 'react-router-dom';
 
 import star from '../../assets/star-dark.svg';
 
@@ -15,7 +16,8 @@ const ProjectsHome = () => {
         
         <div className='mt-40'>
           <div className='w-20 h-4 bg-partner-bg mb-20'></div>
-            <button className='bg-custom-blue text-white w-full h-12'>LIST ALL PROPERTIES</button>
+            <Link to='/allproperties' className="bg-custom-blue text-sm text-white w-3/4 h-10 flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-blue-500 active:bg-blue-700">LIST ALL PROPERTIES</Link>
+
             <div className='pt-5'>
                 <p className='font-jost text-sm'>Asset Bharat is a synonym for the highest quality, laser-sharp focus, and <br /> deliverability. We want your money to reach its potential and you to have a <br /> stable second source of income from a market that was previously offered to <br /> a very niche group.</p>
             </div>
