@@ -6,7 +6,7 @@ const TeamInfo = () => {
     <div className='bg-cream-bg text-black md:flex items-center justify-evenly p-20'>
     <div className="md:inline-block mb-4 md:mb-0">
         <section className='text-custom-blue flex flex-col gap-12'>
-        <h1 className="text-6xl  leading-7  sm:truncate sm:text-6xl sm:tracking-tight">
+        <h1 className="text-3xl md:text-6xl  leading-7  sm:truncate sm:text-6xl sm:tracking-tight">
         MEET OUR <br/>TEAM
       </h1>
       <h3 className='text-base font-jost'>A COLLECTIVE, THAT MAKES DREAMS COME TRUE</h3>            
@@ -17,7 +17,7 @@ const TeamInfo = () => {
         </section>    
     </div>
 
-    <div className="md: grid grid-rows-2 grid-cols-2 gap-y-12 gap-x-5">
+    <div className="md:grid grid-rows-2 grid-cols-2 gap-y-12 gap-x-10">
         <div className='space-y-4'>
             <img src={member}/>
             <div>

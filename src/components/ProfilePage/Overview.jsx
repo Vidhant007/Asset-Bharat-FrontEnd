@@ -2,11 +2,7 @@ import React from 'react';
 
 const Overview = () => {
     // Sample data for recent investments
-    const recentInvestments = [
-        // { id: 1, type: 'Property', amountInvested: '$1000', date: '2023-09-10' },
-        // { id: 2, type: 'Factory', amountInvested: '$2000', date: '2023-09-11' },
-        // { id: 3, type: 'Real Estate', amountInvested: '$5000', date: '2023-09-12' },
-    ];
+    const recentInvestments = [];
 
     // Sample data for investments by location
     const investmentsByLocation = [
@@ -24,9 +20,9 @@ const Overview = () => {
     const hasNoAssetTypeInvestments = investmentsByAssetType.length === 0;
 
     return (
-        <div className="container mx-auto px-20">
-            <div className="flex gap-3 justify-between mt-4">
-                <div className="w-2/3 p-4 text-black border bg-white rounded shadow">
+        <div className="container mx-auto px-2 md:px-10 lg:px-20">
+            <div className="flex flex-wrap flex-col md:flex-row justify-between mt-4">
+                <div className="w-full md:w-2/3 p-4 text-black border bg-white rounded shadow">
                     <h2 className="text-lg font-semibold mb-2">Finish your KYC to start investing</h2>
                     <p>
                         KYC is an important process that helps us verify your identity and ensure the security of your account.
@@ -34,25 +30,26 @@ const Overview = () => {
                     </p>
                     <div className='flex justify-between items-center mt-4'>
                         <a>Personal Info</a>
-                        <a> Address</a>
+                        <a>Address</a>
                         <a>PAN</a>
                         <a>Bank Account</a>
                         <a
                             href="/kyc"
                             rel="noopener noreferrer"
-                            className=" block bg-custom-blue text-white py-2 px-4 rounded-lg text-center"
+                            className="block bg-custom-blue text-white py-2 px-4 rounded-lg text-center"
                         >
                             Start KYC
                         </a>
                     </div>
                 </div>
 
-                <div className="w-1/3 p-4 bg-white border rounded shadow" >
+                <div className="w-full md:w-1/3 p-4 bg-white border rounded shadow">
                     {/* Card Content */}
+                    Demo Goes Here.
                 </div>
             </div>
 
-            <div className='h-96 mt-4 bg-white rounded shadow' style={{ height: '400px' }}>
+            <div className='h-96 mt-4 bg-white rounded shadow overflow-y-auto' style={{ maxHeight: '400px' }}>
                 <div className="mt-4">
                     {hasNoInvestments ? (
                         <div className="mt-4 p-4 bg-white border rounded shadow h-full text-center">
@@ -89,8 +86,8 @@ const Overview = () => {
                 </div>
             </div>
 
-            <div className="flex justify-between mt-4 gap-3">
-                <div className="w-1/2 p-4 bg-white border rounded shadow" style={{ height: '300px', overflowY: 'auto' }}>
+            <div className="flex flex-wrap justify-between mt-4 ">
+                <div className="w-full md:w-1/2 p-4 bg-white border rounded shadow overflow-y-auto" style={{ maxHeight: '300px' }}>
                     <h2 className="text-lg font-semibold mb-2">Investments by Location</h2>
                     {hasNoLocationInvestments ? (
                         <p>No investments by location yet.</p>
@@ -113,7 +110,7 @@ const Overview = () => {
                         </table>
                     )}
                 </div>
-                <div className="w-1/2 p-4 bg-white border rounded shadow" style={{ height: '300px', overflowY: 'auto' }}>
+                <div className="w-full md:w-1/2 p-4 bg-white border rounded shadow overflow-y-auto" style={{ maxHeight: '300px' }}>
                     <h2 className="text-lg font-semibold mb-2">Investments by Asset Type</h2>
                     {hasNoAssetTypeInvestments ? (
                         <p>No investments by asset type yet.</p>

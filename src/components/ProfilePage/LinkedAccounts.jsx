@@ -21,31 +21,33 @@ const LinkedAccounts = () => {
     ];
 
     return (
-        <div className='pb-30'>
+        <div className='pb-10 md:pb-30'>
             <h1 className="text-2xl font-semibold py-3">Linked Accounts</h1>
-            <p>Manage the accounts linked to your profile. Keep track of your connections and settings.</p>
+            <p className="text-gray-600 mb-4">Manage the accounts linked to your profile. Keep track of your connections and settings.</p>
 
             {/* Linked Bank Accounts Table */}
-            <table className="mt-5 w-full border-collapse border">
-                <thead>
-                    <tr className="bg-custom-blue text-white">
-                        <th className="py-2 px-4 text-left">Bank Name</th>
-                        <th className="py-2 px-4 text-left">Account Number</th>
-                        <th className="py-2 px-4 text-left">Account Type</th>
-                        <th className="py-2 px-4 text-left">Balance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {linkedBankAccounts.map((account) => (
-                        <tr key={account.id}>
-                            <td className=" py-2 px-4 text-black ">{account.bankName}</td>
-                            <td className=" py-2 px-4 text-black ">{account.accountNumber}</td>
-                            <td className=" py-2 px-4 text-black ">{account.accountType}</td>
-                            <td className=" py-2 px-4 text-black ">{account.balance}</td>
+            <div className="overflow-x-auto">
+                <table className="w-full border-collapse border bg-white rounded-lg">
+                    <thead>
+                        <tr className="bg-custom-blue text-white">
+                            <th className="py-2 px-4 text-left">Bank Name</th>
+                            <th className="py-2 px-4 text-left">Account Number</th>
+                            <th className="py-2 px-4 text-left">Account Type</th>
+                            <th className="py-2 px-4 text-left">Balance</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {linkedBankAccounts.map((account) => (
+                            <tr key={account.id}>
+                                <td className=" py-2 px-4 text-black">{account.bankName}</td>
+                                <td className=" py-2 px-4 text-black">{account.accountNumber}</td>
+                                <td className=" py-2 px-4 text-black">{account.accountType}</td>
+                                <td className=" py-2 px-4 text-black">{account.balance}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

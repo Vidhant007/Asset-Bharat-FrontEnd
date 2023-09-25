@@ -30,6 +30,14 @@ import FloorPlan from './ProjectsHome/FloorPlan';
 import Faq from './ProjectsHome/Faq';
 import BlogContent from './BlogContent';
 import Profile from './ProfilePage/Profile';
+<<<<<<< Updated upstream
+=======
+import OnSalePropertiesfa from './OnSaleProperties';
+import FundedProperties from './FundedProperties';
+import ExitedProperties from './ExitedProperties';
+import ResaleProperties from './ResaleProperties';
+import OnSaleProperties from './OnSaleProperties';
+>>>>>>> Stashed changes
 
 
 const Navbar = () => {
@@ -64,10 +72,10 @@ const Navbar = () => {
                 <div className='flex  justify-between pt-6 pb-6 pr-12 md:justify-center'>
                     <div className='pr-12'>
                         <Link to="/">
-                            <img src={assetLogo} className='h-16' alt="Logo" />
+                            <img src={assetLogo} className='h-16 pl-1' alt="Logo" />
                         </Link>
                     </div>
-                    <div className="relative" ref={dropdownRef}>
+                    <div className="relative right-1 " ref={dropdownRef}>
                         <button
                             className={`md:hidden p-4 transition-transform duration-300 transform ${dropDown ? 'rotate-180' : 'rotate-0'
                                 }`}
@@ -84,7 +92,7 @@ const Navbar = () => {
                             )}
                         </button>
                         <nav
-                            className={`absolute right-0 top-14 mt-2 w-56 bg-custom-blue text-white font-krona border border-gray-300 rounded-lg shadow-lg overflow-hidden ${dropDown ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                            className={`absolute right-0 top-14 mt-2 w-56 bg-custom-blue text-white font-krona border border-gray-300 rounded-lg shadow-lg overflow-hidden ${dropDown ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
                                 } transition-all duration-300 transform origin-top md:hidden`}
                         >
                             <Link to="/about-us" className='block p-4 transition duration-300 hover:bg-gray-800'>About us</Link>
@@ -145,6 +153,11 @@ const Navbar = () => {
 
                 <Route path='/profile' element={<div><Profile /><Footer/></div>} />
 
+<<<<<<< Updated upstream
+=======
+                <Route path='/allproperties' element={<div><OnSaleProperties /><FundedProperties/><ExitedProperties/><ResaleProperties/><Footer/></div>}/>
+
+>>>>>>> Stashed changes
             </Routes>
 
         </div>

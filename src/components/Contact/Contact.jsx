@@ -4,35 +4,35 @@ import star_dark from '../../assets/star-dark.svg';
 
 const Contact = () => {
   return (
-    <div className="bg-white text-partner flex relative justify-center gap-20 pb-25 pt-25">
-     
-      <div className="flex flex-col justify-center pt-30 space-y-10">
+    <div className="bg-white text-partner flex relative justify-center md:gap-20 pb-25 pt-25">
 
-        <div className='w-20 h-4 bg-partner-bg  mt-20'></div>
+      <div className="flex p-2 flex-col justify-center md:pt-30 pt-20 space-y-10">
 
-        <div className='flex gap-10'>
-            <div>
-                <h3>CONTACTS</h3>
-                <p className="font-jost">123-456-7890</p>
-                <p className="font-jost">email@example.com</p>
-            </div>
-            <div>
-                <h3>ADDRESS</h3>
+
+        <img src={placeholder} alt="About Us" className='flex md:hidden' />
+        <div className='flex p-2 gap-10'>
+          <div>
+            <h3>CONTACTS</h3>
+            <p className="font-jost">123-456-7890</p>
+            <p className="font-jost">email@example.com</p>
+          </div>
+          <div>
+            <h3>ADDRESS</h3>
             <p className="font-jost">123 your street name</p>
             <p className="font-jost">City name, Country, post code</p>
-            </div>
-        </div>
+          </div>
+        </div>  
 
-      
+        <div className='w-20 h-4 bg-partner-bg  md:mt-20'></div>
 
       </div>
 
       <div >
-        <img src={placeholder}  alt="About Us" />
-        <img src={star_dark} alt="star" style={{ position: 'absolute', top: '17%', right: '17%', fontSize: '6rem' }} className='hidden md:flex '/>
-        <h2 style={{ position: 'absolute', top: '25%', right: '28%', fontSize: '6.8rem' }} className='hidden md:flex'>
-  <span className="text-partner">CONTACT US</span>
-</h2>
+        <img src={placeholder} alt="About Us" className='hidden md:flex' />
+        <img src={star_dark} alt="star" style={{ top: '17%', right: '17%', fontSize: '6rem' }} className='md:absolute hidden md:flex ' />
+        <h2 className='absolute md:flex md:top-30 md:left-100 left-0 text-3xl md:text-9xl'>
+          <span className="text-partner">CONTACT US</span>
+        </h2>
 
       </div>
     </div>
