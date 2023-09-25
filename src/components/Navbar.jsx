@@ -30,14 +30,11 @@ import FloorPlan from './ProjectsHome/FloorPlan';
 import Faq from './ProjectsHome/Faq';
 import BlogContent from './BlogContent';
 import Profile from './ProfilePage/Profile';
-<<<<<<< Updated upstream
-=======
 import OnSalePropertiesfa from './OnSaleProperties';
 import FundedProperties from './FundedProperties';
 import ExitedProperties from './ExitedProperties';
 import ResaleProperties from './ResaleProperties';
 import OnSaleProperties from './OnSaleProperties';
->>>>>>> Stashed changes
 
 
 const Navbar = () => {
@@ -153,11 +150,8 @@ const Navbar = () => {
 
                 <Route path='/profile' element={<div><Profile /><Footer/></div>} />
 
-<<<<<<< Updated upstream
-=======
                 <Route path='/allproperties' element={<div><OnSaleProperties /><FundedProperties/><ExitedProperties/><ResaleProperties/><Footer/></div>}/>
 
->>>>>>> Stashed changes
             </Routes>
 
         </div>
