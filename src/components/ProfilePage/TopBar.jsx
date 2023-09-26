@@ -22,12 +22,12 @@ const TopBar = () => {
                 </span>
             </div>
             {/* Right side with total amount invested and total interest */}
-            <div className="text-sm flex items-center gap-100 px-40">
-                <div className="text-3xl font-semibold text-custom-blue">
+            <div className="text-sm flex flex-wrap items-center gap-2 md:gap-64w md:pr-20 px-2 md:px-6">
+                <div className="text-xl md:text-3xl font-semibold text-custom-blue">
                     {userData.totalAmountInvested}
                     <div className="text-xs text-custom-blue">Total Amount Invested</div>
                 </div>
-                <div className="text-3xl font-semibold text-custom-blue ml-4">
+                <div className="text-xl md:text-3xl font-semibold text-custom-blue">
                     {userData.totalInterest}
                     <div className="text-xs text-custom-blue">Total Interest</div>
                 </div>

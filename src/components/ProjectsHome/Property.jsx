@@ -45,19 +45,19 @@ const Property = () => {
   };
 
   return (
-    <div className="flex bg-cream-bg text-custom-blue p-20 pt-28 flex-col items-center">
+    <div className="flex flex-col bg-cream-bg text-custom-blue p-4 md:p-10 pt-10 md:pt-20 pb-10 md:pb-20 items-center">
       {data ? (
-        <div className='flex justify-start items-center gap-12'>
-          <h1 className="text-4xl pb-10 pr-30">{data.name}</h1>
-          <img src={star} alt="star" className='absolute right-100 top-22' />
+        <div className='flex justify-center items-center gap-5'>
+          <h1 className="text-2xl md:text-4xl lg:text-5xl text-left pb-5 pt-20 md:pb-10">{data.name}</h1>
+          <img src={star} alt="star" className='md:absolute hidden top-0 right-0' />
         </div>
       ) : (
         <p>Loading property data...</p>
       )}
       {data && data.highlightedImages.length > 0 && (
-        <div className="relative w-1/2 h-96 ">
-          <button className="absolute top-1/2 left-0 transform -translate-y-1/2 text-4xl text-white px-2 py-1" onClick={prevImage}>&#10094;</button>
-          <button className="absolute top-1/2 right-0 transform -translate-y-1/2 text-4xl text-white px-2 py-1" onClick={nextImage}>&#10095;</button>
+        <div className="relative w-full md:w-1/2 h-96 mb-6 md:mb-0">
+          <button className="absolute top-1/2 left-0 transform -translate-y-1/2 text-2xl md:text-4xl text-white px-2 py-1" onClick={prevImage}>&#10094;</button>
+          <button className="absolute top-1/2 right-0 transform -translate-y-1/2 text-2xl md:text-4xl text-white px-2 py-1" onClick={nextImage}>&#10095;</button>
           <div className="flex h-full">
             {data.highlightedImages.map((image, index) => (
               <img
@@ -66,69 +66,49 @@ const Property = () => {
                 src={image}
                 alt={`Image ${index}`}
                 className={`object-cover ${index === currentImageIndex ? 'block' : 'hidden'}`}
-                style={{ width: '200%', height: '120%' }}
+                style={{ width: '100%', height: '100%' }}
               />
             ))}
           </div>
         </div>
       )}
-     <div className='pt-21 pl-105'>
-      <h2 className='text-2xl'>INVESTMENT OVERVIEW</h2>
-      {data ? <p className='font-jost text-sm w-3/5'>{data.info3}</p> : null}
-    </div>
-
-    <div className='flex gap-10 pt-5'>
-      <div>
-        <h2 className='text-2xl pb-5'>INVESTMENT RETURN</h2>
-
-        <div className='flex flex-col gap-4'>
-              <h4>Minimum Investment Size : Rs 7000</h4>
-
-              <h4>Gross Entry Yeild : 11%</h4>
-              
-              <h4>Target IRR : 20%</h4>
-              
-              <div>
-                <h4>Rental Yield per Annum : 7%</h4>
-                <h5 className='font-jost text-sm'>Note : AB maintainance charges will be excluded from rental profit</h5>
-              </div>
-
-              <h4>Rent from Existing Tenant : Rs 51 per sq feet</h4>
-
-              <button className='bg-custom-blue text-white w-1/2 h-10 hover:bg-blue-500 active:bg-blue-700'>INVEST</button>
-
-              <button className='bg-custom-blue text-white w-1/2 h-10 hover:bg-blue-500 active:bg-blue-700'>JOIN WAITLIST</button>
-
-
-        </div>
-
+      <div className='md:pl-10 w-full md:w-1/2'>
+        <h2 className='text-xl md:text-2xl text-left'>INVESTMENT OVERVIEW</h2>
+        {data ? <p className='font-jost text-sm'>{data.info3}</p> : null}
       </div>
-
-      <div>
-        <div>
-          <h2 className='text-2xl pb-5'>DETAILS</h2>
-
+      <div className='flex flex-col gap-6 pt-6 md:flex-row md:gap-10 md:truncate'>
+        <div className='w-full md:w-2/3'>
+          <h2 className='text-xl md:text-2xl text-left pb-3 md:pb-5'>INVESTMENT RETURN</h2>
+          <div className='flex flex-col gap-2'>
+            <h4 className='text-left'>Minimum Investment Size: Rs 7000</h4>
+            <h4 className='text-left'>Gross Entry Yield: 11%</h4>
+            <h4 className='text-left'>Target IRR: 20%</h4>
+            <div>
+              <h4 className='text-left'>Rental Yield per Annum: 7%</h4>
+              <h5 className='font-jost text-left text-xs'>Note: AB maintenance charges will be excluded from rental profit</h5>
+            </div>
+            <h4 className='text-left'>Rent from Existing Tenant: Rs 51 per sq feet</h4>
+            <button className='bg-custom-blue text-white w-full md:w-1/2 h-10 hover:bg-blue-500 active:bg-blue-700'>INVEST</button>
+            <button className='bg-custom-blue text-white w-full md:w-1/2 h-10 hover:bg-blue-500 active:bg-blue-700 mt-2'>JOIN WAITLIST</button>
+          </div>
         </div>
-
-        <div className='flex flex-col gap-4'>
-           <h4>Cost of Property : 200000000</h4>
-
-           <div>
-              <h4>Funded : 12203000</h4>
-              <div className='w-85 h-4 bg-custom-blue'>
+        <div className='w-full md:w-1/2'>
+          <h2 className='text-xl md:text-2xl text-left pb-3 md:pb-5'>DETAILS</h2>
+          <div className='flex flex-col gap-2'>
+            <h4 className='text-left'>Cost of Property: 200,000,000</h4>
+            <div className='text-left'>
+              <h4 className='mb-2'>Funded: 12,203,000</h4>
+              <div className='w-3/4 h-2 bg-custom-blue mx-auto'>
                 <div className='w-3/4 h-full bg-orange-500'></div>
-               </div>  
-           </div>
-
-           <h4>Size : 1500000000 sq.feet</h4>
-           <h4>Floors : 3</h4>
-           <h4>Parking Spaces : 2</h4>
-           <h4>Year Built : 2020</h4>
+              </div>
+            </div>
+            <h4 className='text-left'>Size: 1,500,000 sq. feet</h4>
+            <h4 className='text-left'>Floors: 3</h4>
+            <h4 className='text-left'>Parking Spaces: 2</h4>
+            <h4 className='text-left'>Year Built: 2020</h4>
+          </div>
         </div>
-
       </div>
-    </div> 
-
     </div>
   );
 };

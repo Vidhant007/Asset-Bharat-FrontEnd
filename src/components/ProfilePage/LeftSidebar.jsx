@@ -12,7 +12,10 @@ const LeftSidebar = ({ selectedContent, handleContentChange }) => {
           } py-4 px-4 rounded-lg mb-2 w-full text-left hover:bg-blue-800 hover:text-white hover:font-bold transition duration-300 flex justify-between items-center`}
       >
         <span className="flex items-center">
-          <FaUser className="mr-2" /> Overview
+          <FaUser className="mr-2" /> 
+          <div className="hidden md:flex">
+            Overview
+          </div>
         </span>
       </button>
       <button
@@ -23,7 +26,10 @@ const LeftSidebar = ({ selectedContent, handleContentChange }) => {
           } py-4 px-4 rounded-lg mb-2 w-full text-left hover:bg-blue-800 hover:text-white hover:font-bold transition duration-300 flex justify-between items-center`}
       >
         <span className="flex items-center">
-          <FaExchangeAlt className="mr-2" /> Transactions
+          <FaExchangeAlt className="mr-2" />
+          <div className="hidden md:flex">
+            Transactions
+          </div>
         </span>
       </button>
       <button
@@ -34,7 +40,10 @@ const LeftSidebar = ({ selectedContent, handleContentChange }) => {
           } py-4 px-4 rounded-lg mb-2 w-full text-left hover:bg-blue-800 hover:text-white hover:font-bold transition duration-300 flex justify-between items-center`}
       >
         <span className="flex items-center">
-          <FaChartBar className="mr-2" /> Reports
+          <FaChartBar className="mr-2" /> 
+          <div className="hidden md:flex">
+            Reports
+          </div>
         </span>
       </button>
       <button
@@ -45,7 +54,10 @@ const LeftSidebar = ({ selectedContent, handleContentChange }) => {
           } py-4 px-4 rounded-lg mb-2 w-full text-left hover:bg-blue-800 hover:text-white hover:font-bold transition duration-300 flex justify-between items-center`}
       >
         <span className="flex items-center">
-          <FaFileAlt className="mr-2" /> Documents
+          <FaFileAlt className="mr-2" /> 
+          <div className="hidden md:flex">
+            Documents
+          </div>
         </span>
       </button>
       <button
@@ -56,7 +68,10 @@ const LeftSidebar = ({ selectedContent, handleContentChange }) => {
           } py-4 px-4 rounded-lg w-full text-left hover:bg-blue-800 hover:text-white hover:font-bold transition duration-300 flex justify-between items-center`}
       >
         <span className="flex items-center">
-          <FaLink className="mr-2" /> Linked Accounts
+          <FaLink className="mr-2" /> 
+          <div className="hidden md:flex">
+            Linked Accounts
+          </div>
         </span>
       </button>
     </div>

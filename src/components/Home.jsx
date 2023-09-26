@@ -5,26 +5,26 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div className='bg-cream-bg text-partner flex justify-evenly pt-25 pb-20'>
+    <div className='bg-cream-bg text-partner flex flex-col md:flex-row md:justify-evenly justify-center pt-25 pb-20 p-4 '>
       <div>
-        <div className='absolute'>
-            <h3 className='text-5xl pl-2 text-custom-blue'>INVEST</h3>
-            <h2 className='text-3xl pl-3 pt-5 text-custom-blue'>IN COMMERCIAL & RESIDENTIAL</h2>
-            <h1 className='text-9xl pt-8'>REAL ESTATE</h1>
+        <div className='md:absolute relative text-left mb-6 md:mb-0'>
+          <h3 className='text-xl md:text-5xl text-custom-blue'>INVEST</h3>
+          <h2 className='text-xl md:text-3xl text-custom-blue md:pt-5'>IN COMMERCIAL & RESIDENTIAL</h2>
+          <h1 className='text-4xl md:text-9xl pt-2 md:pt-8'>REAL ESTATE</h1>
         </div>
         
-        <div className='mt-40'>
+        <div className='md:mt-40 mb-6'>
           <div className='w-20 h-4 bg-partner-bg mb-20'></div>
           <Link to='/projects' className="bg-custom-blue text-sm text-white w-3/4 h-10 flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-blue-500 active:bg-blue-700">VIEW OPPORTUNITIES</Link>
             <div className='pt-5'>
-                <p className='font-jost text-sm'>*Minimum Investment size starting at just Rs 7000 <br/>*Choose from several commercial and residential portfolios <br/>*Get monthly rents and profits on your investment</p>
+            <p className='font-jost text-sm'>*Minimum Investment size starting at just Rs 7000 <br />*Choose from several commercial and residential portfolios <br />*Get monthly rents and profits on your investment</p>
             </div>
         </div>
       </div>
       <div >
         <img src={img} alt="image" />
-        <img src={star} alt="star" className='absolute top-22 right-30'/>
-        <div className='flex justify-center gap-5 pt-2 pl-90'>
+        <img src={star} alt="star" className='absolute md:top-22 md:right-30 top-25 right-0' />
+        <div className='flex justify-center gap-5 pt-2 md:pl-90 pl-30'>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 0 512 512" fill="black">
                         <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/>

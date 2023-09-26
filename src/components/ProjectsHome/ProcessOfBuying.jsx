@@ -5,7 +5,7 @@ const ProcessOfBuying = () => {
     <div className='bg-custom-blue text-white md:flex items-center justify-evenly p-20'>
     <div className="md:inline-block mb-4 md:mb-0 ">
         <section className='text-white flex flex-col gap-12'>
-        <h1 className="text-5xl  leading-7  sm:truncate sm:text-5xl sm:tracking-tight">
+        <h1 className="text-3xl  leading-7  sm:truncate md:text-5xl sm:tracking-tight">
         PROCESS <br/> OF BUYING
       </h1>            
     

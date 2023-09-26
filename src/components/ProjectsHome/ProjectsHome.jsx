@@ -7,17 +7,18 @@ import star from '../../assets/star-dark.svg';
 
 const ProjectsHome = () => {
   return (
-    <div className='bg-blue-xlight text-partner flex justify-evenly pt-25 pb-20'>
-      <div>
+    <div className='bg-blue-xlight text-partner flex justify-center pt-25 pb-20'>
+      <div className='md:w-1/2'>
         <div className='absolute'>
-    
-            <h1 className='text-custom-blue text-8xl '>OUR <br/> PROJECTS</h1>
-        </div>
-        
-        <div className='mt-40'>
-          <div className='w-20 h-4 bg-partner-bg mb-20'></div>
-            <Link to='/allproperties' className="bg-custom-blue text-sm text-white w-3/4 h-10 flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-blue-500 active:bg-blue-700">LIST ALL PROPERTIES</Link>
 
+          <h1 className='text-custom-blue text-5xl md:text-8xl '>OUR <br /> PROJECTS</h1>
+        </div>
+
+        <div className='md:mt-40 mt-28 p-2'>
+          <div className='w-20 h-4 bg-partner-bg mb-20'></div>
+            <a href='/allproperties'>
+              <button className='bg-custom-blue text-white w-full h-12' >LIST ALL PROPERTIES</button>
+            </a>
             <div className='pt-5'>
                 <p className='font-jost text-sm'>Asset Bharat is a synonym for the highest quality, laser-sharp focus, and <br /> deliverability. We want your money to reach its potential and you to have a <br /> stable second source of income from a market that was previously offered to <br /> a very niche group.</p>
             </div>
@@ -25,7 +26,7 @@ const ProjectsHome = () => {
       </div>
       <div >
         <img src={img} alt="image" />
-        <img src={star} alt="star" className='absolute top-22 right-30'/>
+        <img src={star} alt="star" className='absolute hidden md:flex top-22 right-30' />
 
       </div>
     </div>

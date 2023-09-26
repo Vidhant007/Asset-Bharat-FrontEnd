@@ -12,8 +12,8 @@ const Faq = () => {
       <div className="md:flex items-center justify-evenly p-10">
         <div className="md:inline-block mb-4 md:mb-0">
           <section className="flex flex-col gap-12">
-            <h1 className="text-5xl pl-25 leading-7 sm:text-5xl sm:tracking-tight">
-              FAQ PAGE .
+            <h1 className="text-2xl md:pl-25 leading-7 sm:text-5xl sm:tracking-tight text-center">
+              FAQ PAGE 
             </h1>
           </section>
         </div>

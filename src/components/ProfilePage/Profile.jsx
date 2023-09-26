@@ -14,7 +14,7 @@ const Profile = () => {
         <div className="font-jost bg-blue-xlight pt-21">
         <TopBar />
 
-            <div className="flex bg-white flex-1 border"> 
+            <div className="flex bg-white border"> 
                 <LeftSidebar selectedContent={selectedContent} handleContentChange={handleContentChange} />
                 <ProfileContent selectedContent={selectedContent} />
             </div>
