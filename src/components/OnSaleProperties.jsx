@@ -1,16 +1,62 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import FundedCard from './FundedCard';
+import OnSaleCard from './OnSaleCard';
+
+const sampleProperties = [
+  {
+    _id: '1',
+    name: 'Property A',
+    location: 'Location X',
+    priceCategory: 'High',
+    highlightedImages: ['image1.jpg', 'image2.jpg'],
+  },
+  {
+    _id: '2',
+    name: 'Property B',
+    location: 'Location Y',
+    priceCategory: 'Medium',
+    highlightedImages: ['image3.jpg', 'image4.jpg'],
+  },
+  {
+    _id: '3',
+    name: 'Property C',
+    location: 'Location X',
+    priceCategory: 'Low',
+    highlightedImages: ['image5.jpg', 'image6.jpg'],
+  },
+  {
+    _id: '4',
+    name: 'Property D',
+    location: 'Location Z',
+    priceCategory: 'High',
+    highlightedImages: ['image7.jpg', 'image8.jpg'],
+  },
+  {
+    _id: '5',
+    name: 'Property E',
+    location: 'Location X',
+    priceCategory: 'Low',
+    highlightedImages: ['image9.jpg', 'image10.jpg'],
+  },
+  {
+    _id: '6',
+    name: 'Property F',
+    location: 'Location Y',
+    priceCategory: 'Medium',
+    highlightedImages: ['image11.jpg', 'image12.jpg'],
+  },
+];
 
 const OnSaleProperties = () => {
-  const [properties, setProperties] = useState([]);
+  // const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState(sampleProperties);
   const [locationFilter, setLocationFilter] = useState('All');
   const [priceFilter, setPriceFilter] = useState('All');
 
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/properties/funded');
+        // const response = await axios.get('http://localhost:3000/api/v1/properties/funded');
         setProperties(response.data.properties);
       } catch (error) {
         console.error('Error fetching properties:', error);
@@ -85,7 +131,7 @@ const OnSaleProperties = () => {
       <div className='flex justify-center '>
         <div className='grid grid-cols-1 gap-12 md:grid-cols-3'>
           {filteredProperties.map((property) => (
-            <FundedCard
+            <OnSaleCard
               key={property._id}
               id={property._id}
               img={property.highlightedImages[0]} // Assuming the first image is used
