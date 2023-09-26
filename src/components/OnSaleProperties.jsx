@@ -46,7 +46,7 @@ const OnSaleProperties = () => {
       <div className="justify-center flex pb-10">
         <h4 className="text-custom-blue text-4xl">On Sale Properties.</h4>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center pb-4">
         {/* Location Filter Toggle */}
         <div className="mr-8">
           <label htmlFor="locationFilter" className="text-blue-900">Location Filter:</label>
