@@ -31,11 +31,12 @@ import Faq from './ProjectsHome/Faq';
 import BlogContent from './BlogContent';
 import Profile from './ProfilePage/Profile';
 
-import { useAuth0 } from '@auth0/auth0-react';
+import { User, useAuth0 } from '@auth0/auth0-react';
 import FundedProperties from './FundedProperties';
 import ExitedProperties from './ExitedProperties';
 import ResaleProperties from './ResaleProperties';
 import OnSaleProperties from './OnSaleProperties';
+import SaleProp from './SaleProp';
 
 
 const Navbar = () => {
@@ -44,7 +45,7 @@ const Navbar = () => {
 
     const [signedIn,setSignedIn] = useState(false);
 
-    const {loginWithRedirect,isAuthenticated,isLoading} = useAuth0();
+    const {loginWithRedirect,isAuthenticated,user,isLoading} = useAuth0();
 
 
     const toggleDropDown = () => {
@@ -101,7 +102,7 @@ const Navbar = () => {
                             <Link to="/partners" className='block p-4 transition duration-300 hover:bg-gray-800'>Partners</Link>
                             <Link to="/contact" className='block p-4 transition duration-300 hover:bg-gray-800'>Contact</Link>
                             <Link to="/know-more" className='block p-4 transition duration-300 hover:bg-gray-800'>Know More</Link>
-                            {signedIn ? (
+                            {(isAuthenticated || signedIn) ? (
                             <Link to="/profile" className='block p-4 transition duration-300 hover:bg-gray-800'>
                                 Profile
                             </Link>
@@ -121,7 +122,7 @@ const Navbar = () => {
                             <Link to="/contact" className='transition duration-300 hover:text-yellow-500'>Contact</Link>
                             <Link to="/know-more" className='transition duration-300 hover:text-yellow-500'>Know More</Link>
 
-                            {isAuthenticated ? (
+                            {(isAuthenticated || signedIn) ? (
                             <Link to="/profile" className="transition duration-300 hover:text-yellow-500">
                                 Profile
                             </Link>
@@ -151,9 +152,12 @@ const Navbar = () => {
                 <Route path='/know-more' element={<div><Blogs /><Footer /></div>} />
                 <Route path='/signup' element={<div><SignIn setSignedIn={setSignedIn} loginWithRedirect={loginWithRedirect} isAuthenticated={isAuthenticated} isLoading={isLoading} /><Footer /></div>} />
 
-                <Route path='/profile' element={<div><Profile /><Footer/></div>} />
+                <Route path='/profile' element={<div><Profile user={user} isAuthenticated={isAuthenticated}/><Footer/></div>} />
 
                 <Route path='/allproperties' element={<div><OnSaleProperties /><FundedProperties/><ExitedProperties/><ResaleProperties/><Footer/></div>}/>
+
+                    {/* dummy route for sales properties */}
+                <Route path="/property/1" element={<div><SaleProp/><Tenancy /><Location /><FloorPlan /><Faq /><Footer /></div>} />
 
             </Routes>
 
