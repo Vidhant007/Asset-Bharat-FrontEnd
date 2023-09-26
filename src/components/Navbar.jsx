@@ -30,9 +30,6 @@ import FloorPlan from './ProjectsHome/FloorPlan';
 import Faq from './ProjectsHome/Faq';
 import BlogContent from './BlogContent';
 import Profile from './ProfilePage/Profile';
-import FundedProperties from './FundedProperties';
-import ExitedProperties from './ExitedProperties';
-import ResaleProperties from './ResaleProperties';
 
 import { useAuth0 } from '@auth0/auth0-react';
 import FundedProperties from './FundedProperties';
