@@ -5,13 +5,17 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
 
-const SignIn = ({setSignedIn}) => {
+
+const SignIn = ({setSignedIn,isLoading,isAuthenticated,loginWithRedirect}) => {
 
 
- 
 
     const [signUpState,setSignUpState] = useState(false);
 
+
+    const handleAuth0Login = () =>{
+      loginWithRedirect();
+    }
 
   const [formData, setFormData] = useState({
     email: '',
@@ -36,7 +40,7 @@ const SignIn = ({setSignedIn}) => {
       console.log('Server Response : ', response.data);
       toast.success('Login SucessFul');
 
-      setSignedIn(true);
+      isAuthenticated(true);
 
     }catch(error){
       console.error('Error:', error);
@@ -54,6 +58,7 @@ const SignIn = ({setSignedIn}) => {
 
   return (
     <div className="font-jost bg-blue-xlight p-10 pt-22">
+
       <div className="container mx-auto">
         <div className="flex justify-center px-6 my-12">
           <div className="w-full xl:w-3/4 lg:w-11/12 flex">
@@ -119,6 +124,12 @@ const SignIn = ({setSignedIn}) => {
                     Forgot Password?
                   </a>
                 </div>
+                
+                <div>
+                  <button type='button' onClick={handleAuth0Login}>Sign In with Google</button>
+                </div>
+
+
               </form>
             </div>
           </div>

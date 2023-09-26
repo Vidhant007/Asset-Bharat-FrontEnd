@@ -34,12 +34,16 @@ import FundedProperties from './FundedProperties';
 import ExitedProperties from './ExitedProperties';
 import ResaleProperties from './ResaleProperties';
 
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 const Navbar = () => {
     const [dropDown, setDropDown] = useState(false);
     const dropdownRef = useRef(null);
 
     const [signedIn,setSignedIn] = useState(false);
+
+    const {loginWithRedirect,isAuthenticated,isLoading} = useAuth0();
 
 
     const toggleDropDown = () => {
@@ -116,7 +120,7 @@ const Navbar = () => {
                             <Link to="/contact" className='transition duration-300 hover:text-yellow-500'>Contact</Link>
                             <Link to="/know-more" className='transition duration-300 hover:text-yellow-500'>Know More</Link>
 
-                            {signedIn ? (
+                            {isAuthenticated ? (
                             <Link to="/profile" className="transition duration-300 hover:text-yellow-500">
                                 Profile
                             </Link>
@@ -144,7 +148,7 @@ const Navbar = () => {
                 <Route path='/partners' element={<div><OurPartners /><WestBurr /><Garcia /><Morner /><Footer /></div>} />
                 <Route path='/contact' element={<div><Contact /><Message /><Footer /></div>} />
                 <Route path='/know-more' element={<div><Blogs /><Footer /></div>} />
-                <Route path='/signup' element={<div><SignIn setSignedIn={setSignedIn} /><Footer /></div>} />
+                <Route path='/signup' element={<div><SignIn setSignedIn={setSignedIn} loginWithRedirect={loginWithRedirect} isAuthenticated={isAuthenticated} isLoading={isLoading} /><Footer /></div>} />
 
                 <Route path='/profile' element={<div><Profile /><Footer/></div>} />
 
