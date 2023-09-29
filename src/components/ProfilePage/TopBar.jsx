@@ -7,18 +7,18 @@ const userData = {
     totalInterest: '$5,000',
 };
 
-const TopBar = () => {
+const TopBar = ({user,isAuthenticated}) => {
     return (
         <div className="flex justify-between items-center px-6 py-2 bg-white border-b-2">
             {/* Left side with profile pic and name */}
             <div className="flex items-center">
                 <img
-                    src={userData.profilePic}
+                    src={isAuthenticated ? user.picture : userData.profilePic}
                     alt="DP"
                     className="w-12 h-12 rounded-full mr-4 border-2"
                 />
                 <span className="text-xl font-semibold text-custom-blue">
-                    {userData.name}
+                    {isAuthenticated ? user.name : userData.name}
                 </span>
             </div>
             {/* Right side with total amount invested and total interest */}

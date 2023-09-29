@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import OnSaleCard from './OnSaleCard';
+import img1 from '../assets/sale_prop.jpg'
 
 const sampleProperties = [
   {
@@ -8,42 +9,42 @@ const sampleProperties = [
     name: 'Property A',
     location: 'Location X',
     priceCategory: 'High',
-    highlightedImages: ['image1.jpg', 'image2.jpg'],
+    highlightedImages: [{img1}],
   },
   {
     _id: '2',
     name: 'Property B',
     location: 'Location Y',
     priceCategory: 'Medium',
-    highlightedImages: ['image3.jpg', 'image4.jpg'],
+    highlightedImages: [{img1}],
   },
   {
     _id: '3',
     name: 'Property C',
     location: 'Location X',
     priceCategory: 'Low',
-    highlightedImages: ['image5.jpg', 'image6.jpg'],
+    highlightedImages: [{img1}],
   },
   {
     _id: '4',
     name: 'Property D',
     location: 'Location Z',
     priceCategory: 'High',
-    highlightedImages: ['image7.jpg', 'image8.jpg'],
+    highlightedImages: [{img1}],
   },
   {
     _id: '5',
     name: 'Property E',
     location: 'Location X',
     priceCategory: 'Low',
-    highlightedImages: ['image9.jpg', 'image10.jpg'],
+    highlightedImages: [{img1}],
   },
   {
     _id: '6',
     name: 'Property F',
     location: 'Location Y',
     priceCategory: 'Medium',
-    highlightedImages: ['image11.jpg', 'image12.jpg'],
+    highlightedImages: [{img1}],
   },
 ];
 

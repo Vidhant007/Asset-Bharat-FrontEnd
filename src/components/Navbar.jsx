@@ -31,10 +31,13 @@ import Faq from './ProjectsHome/Faq';
 import BlogContent from './BlogContent';
 import ScrollToTop from './ScrollToTop';
 import Profile from './ProfilePage/Profile';
+
+import { User, useAuth0 } from '@auth0/auth0-react';
 import FundedProperties from './FundedProperties';
 import ExitedProperties from './ExitedProperties';
 import ResaleProperties from './ResaleProperties';
 import OnSaleProperties from './OnSaleProperties';
+import SaleProp from './SaleProp';
 
 
 const Navbar = () => {
@@ -42,6 +45,8 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
 
   const [signedIn, setSignedIn] = useState(false);
+
+    const {loginWithRedirect,isAuthenticated,user,isLoading} = useAuth0();
 
 
   const toggleDropDown = () => {
