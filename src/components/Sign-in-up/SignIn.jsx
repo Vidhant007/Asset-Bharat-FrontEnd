@@ -3,15 +3,14 @@ import pic from '../../assets/garcia_img.avif';
 import SignUp from './SignUp';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
 
-const SignIn = ({setSignedIn}) => {
+const SignIn = ({ setSignedIn }) => {
 
+  const navigate = useNavigate();
 
- 
-
-    const [signUpState,setSignUpState] = useState(false);
-
+  const [signUpState, setSignUpState] = useState(false);
 
   const [formData, setFormData] = useState({
     email: '',
@@ -23,34 +22,50 @@ const SignIn = ({setSignedIn}) => {
     setFormData({ ...formData, [id]: value });
   };
 
-
-  const handleSubmit = async (e) =>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try{
-      const response = await axios.post('http://localhost:3000/api/v1/authorization/login',{
+    // Regex patterns for email and password validation
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    // const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$/;
+
+    // Check if the email and password match the regex patterns
+    if (!emailPattern.test(formData.email)) {
+      toast.error('Invalid email format. Please enter a valid email address.');
+      return;
+    }
+
+    // if (!passwordPattern.test(formData.password)) {
+    //   toast.error('Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one digit, and one special character.');
+    //   return;
+    // }
+
+    try {
+      const response = await axios.post('http://localhost:3000/api/v1/authorization/login', {
         email: formData.email,
         password: formData.password,
       });
 
       console.log('Server Response : ', response.data);
-      toast.success('Login SucessFul');
+      toast.success('Login Successful!');
+
+      navigate('/');
 
       setSignedIn(true);
 
-    }catch(error){
+    } catch (error) {
       console.error('Error:', error);
-      toast.error('InCorrect Password or Email.');
+      toast.error('Incorrect Password or Email.');
     }
   }
 
-    const toggleSignUp = ()=>{
-        setSignUpState(true);
-    }
+  const toggleSignUp = () => {
+    setSignUpState(true);
+  }
 
-    if(signUpState){
-        return <SignUp/>
-    }
+  if (signUpState) {
+    return <SignUp />
+  }
 
   return (
     <div className="font-jost bg-blue-xlight p-10 pt-22">
@@ -58,13 +73,13 @@ const SignIn = ({setSignedIn}) => {
         <div className="flex justify-center px-6 my-12">
           <div className="w-full xl:w-3/4 lg:w-11/12 flex">
             {/* Col */}
-            <img className="w-full h-auto  hidden lg:block lg:w-1/2 bg-cover " src={pic}/>
+            <img className="w-full h-auto  hidden lg:block lg:w-1/2 bg-cover " src={pic} alt="Garcia" />
             {/* Col */}
             <div className="w-full lg:w-1/2 bg-white p-5 ">
               <h3 className="pt-4 text-2xl text-center">Welcome Back!</h3>
               <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="username">
+                  <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
                     User-Email
                   </label>
                   <input
@@ -124,7 +139,7 @@ const SignIn = ({setSignedIn}) => {
           </div>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };
