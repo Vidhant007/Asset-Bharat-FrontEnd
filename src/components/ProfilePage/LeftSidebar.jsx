@@ -1,7 +1,7 @@
 import React from 'react';
-import { FaUser, FaExchangeAlt, FaChartBar, FaFileAlt, FaLink } from 'react-icons/fa';
+import { FaUser, FaExchangeAlt, FaChartBar, FaFileAlt, FaLink,FaSignOutAlt } from 'react-icons/fa';
 
-const LeftSidebar = ({ selectedContent, handleContentChange }) => {
+const LeftSidebar = ({ selectedContent, handleContentChange,setSignedIn,logOut }) => {
   return (
     <div className="left-sidebar bg-white p-3 border shadow" style={{ width: '13%' }}>
       <button
@@ -71,6 +71,18 @@ const LeftSidebar = ({ selectedContent, handleContentChange }) => {
           <FaLink className="mr-2" /> 
           <div className="hidden md:flex">
             Linked Accounts
+          </div>
+        </span>
+      </button>
+
+      <button
+        onClick={()=>logOut(true)}
+        className = "py-4 px-4 rounded-lg w-full text-left hover:bg-blue-800 hover:text-white hover:font-bold transition duration-300 flex justify-between items-center"
+      >
+        <span className="flex items-center">
+          <FaSignOutAlt className="mr-2" /> 
+          <div className="hidden md:flex">
+            Log Out
           </div>
         </span>
       </button>

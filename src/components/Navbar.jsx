@@ -45,8 +45,9 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
 
   const [signedIn, setSignedIn] = useState(false);
+  console.log(signedIn);
 
-    const {loginWithRedirect,isAuthenticated,user,isLoading} = useAuth0();
+    const {loginWithRedirect,isAuthenticated,user,isLoading,logout} = useAuth0();
 
 
   const toggleDropDown = () => {
@@ -103,7 +104,7 @@ const Navbar = () => {
               <Link to="/partners" className='block p-4 transition duration-300 hover:bg-gray-800' onClick={toggleDropDown}>Partners</Link>
               <Link to="/contact" className='block p-4 transition duration-300 hover:bg-gray-800' onClick={toggleDropDown}>Contact</Link>
               <Link to="/know-more" className='block p-4 transition duration-300 hover:bg-gray-800' onClick={toggleDropDown}>Know More</Link>
-              {signedIn ? (
+              {(isAuthenticated || signedIn) ? (
                 <Link to="/profile" className='block p-4 transition duration-300 hover:bg-gray-800' onClick={toggleDropDown}>
                   Profile
                 </Link>
@@ -123,7 +124,7 @@ const Navbar = () => {
               <Link to="/contact" className='transition duration-300 hover:text-yellow-500'>Contact</Link>
               <Link to="/know-more" className='transition duration-300 hover:text-yellow-500'>Know More</Link>
 
-              {signedIn ? (
+              {(isAuthenticated || signedIn) ? (
                 <Link to="/profile" className="transition duration-300 hover:text-yellow-500">
                   Profile
                 </Link>
@@ -151,9 +152,9 @@ const Navbar = () => {
           <Route path='/partners' element={<div><OurPartners /><WestBurr /><Garcia /><Morner /><Footer /></div>} />
           <Route path='/contact' element={<div><Contact /><Message /><Footer /></div>} />
           <Route path='/know-more' element={<div><Blogs /><Footer /></div>} />
-          <Route path='/signup' element={<div><SignIn setSignedIn={setSignedIn} /><Footer /></div>} />
+          <Route path='/signup' element={<div><SignIn setSignedIn={setSignedIn} loginWithRedirect={loginWithRedirect} isAuthenticated={isAuthenticated} isLoading={isLoading} /><Footer /></div>} />
 
-          <Route path='/profile' element={<div><Profile /><Footer /></div>} />
+          <Route path='/profile' element={<div><Profile user={user} isAuthenticated={isAuthenticated} setSignedIn={setSignedIn} logOut= {logout} /><Footer /></div>} />
 
           <Route path='/allproperties' element={<div><OnSaleProperties /><FundedProperties /><ExitedProperties /><ResaleProperties /><Footer /></div>} />
 

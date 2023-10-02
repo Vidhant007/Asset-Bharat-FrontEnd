@@ -3,7 +3,7 @@ import LeftSidebar from './LeftSidebar';
 import TopBar from './TopBar';
 import ProfileContent from './Content';
 
-const Profile = ({user,isAuthenticated}) => {
+const Profile = ({user,isAuthenticated,setSignedIn,logOut}) => {
     const [selectedContent, setSelectedContent] = useState('overview');
 
     const handleContentChange = (content) => {
@@ -15,7 +15,7 @@ const Profile = ({user,isAuthenticated}) => {
         <TopBar user={user} isAuthenticated={isAuthenticated} />
 
             <div className="flex bg-white border"> 
-                <LeftSidebar selectedContent={selectedContent} handleContentChange={handleContentChange} />
+                <LeftSidebar selectedContent={selectedContent} handleContentChange={handleContentChange} setSignedIn={setSignedIn} logOut={logOut}/>
                 <ProfileContent selectedContent={selectedContent} />
             </div>
         </div>
