@@ -38,6 +38,7 @@ import ExitedProperties from './ExitedProperties';
 import ResaleProperties from './ResaleProperties';
 import OnSaleProperties from './OnSaleProperties';
 import SaleProp from './SaleProp';
+import PropertyStatic from './ProjectsHome/PropertyStatic';
 
 
 const Navbar = () => {
@@ -158,6 +159,8 @@ const Navbar = () => {
 
           <Route path='/allproperties' element={<div><OnSaleProperties /><FundedProperties /><ExitedProperties /><ResaleProperties /><Footer /></div>} />
 
+        {/* dummy property route (sale) */}
+        <Route path='/property/sale' element={<div><PropertyStatic/><Tenancy /><Location /><FloorPlan /><Faq /><Footer /></div>}/>
         </Routes>
       </ScrollToTop>
 
